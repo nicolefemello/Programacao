@@ -1,0 +1,67 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: LOJA DE VEÍCULOS
+    Crie os seguintes arrays:
+    let carrosSUV = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    let cassosSedan = ["Civic", "Corolla", "Arizzo", "Fusion"];
+    let carrosHatch = ["308", "Focus", "i30"];
+    
+    Peça para o usuário informar mais três veículos para serem inseridos na lista. 
+    Para inserir na lista correta, peça também para o usuário identificar o tipo de veículo que deseja inserir, se é SUV, Sedan ou Hatch.
+
+    Apresente a lista final de cada tipo de veículo.
+    */
+
+    //ENTRADA
+    const carro1 = prompt("Informe o primeiro veículo:");
+    const lista1 = prompt("Informe o tipo do veículo 1: (SUV, Sedan ou Hatch)").toLowerCase();
+    const carro2 = prompt("Informe o segundo veículo:");
+    const lista2 = prompt("Informe o tipo do veículo 2: (SUV, Sedan ou Hatch)").toLowerCase();
+    const carro3 = prompt("Informe o terceiro veículo:");
+    const lista3 = prompt("Informe o tipo do veículo 3: (SUV, Sedan ou Hatch)").toLowerCase();
+
+    //PROCESSAMENTO
+    let suv = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    let sedan = ["Civic", "Corolla", "Arizzo", "Fusion"];
+    let hatch = ["308", "Focus", "i30"];
+
+    if (lista1 == 'suv') { //carro1
+        suv.push(carro1);
+        alert(`SUV: ${suv.join(", ")}`);
+    } else if (lista1 == 'sedan') {
+        sedan.push(carro1);
+        alert(`Sedan: ${sedan.join(", ")}`);
+    } else if (lista1 == 'hatch') {
+        hatch.push(carro1);
+        alert(`Hatch: ${hatch.join(", ")}`);
+    } else {
+        alert("Lista inválida!")
+    }
+
+    if (lista2 == 'suv') { //carro2
+        suv.push(carro2);
+        alert(`SUV: ${suv.join(", ")}`);
+    } else if (lista2 == 'sedan') {
+        sedan.push(carro2);
+        alert(`Sedan: ${sedan.join(", ")}`);
+    } else if (lista3 == 'hatch') {
+        hatch.push(carro2);
+        alert(`Hatch: ${hatch.join(", ")}`);
+    } else {
+        alert("Valor inválido!");
+    }
+
+    if (lista3 == 'suv') { //carro3
+        suv.push(carro3);
+        alert(`SUV: ${suv.join(", ")}`);
+    } else if (lista3 == 'sedan') {
+        sedan.push(carro3);
+        alert(`Sedan: ${sedan.join(", ")}`);
+    } else if (lista3 == 'hatch') {
+        hatch.push(carro3);
+        alert(`Hatch: ${hatch.join(", ")}`);
+    } else {
+        alert("Lista inválida!")
+    }
+</script>
