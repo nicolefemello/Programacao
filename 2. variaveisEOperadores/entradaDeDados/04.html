@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    Problema: Endereço Completo
+        Peça para o usuário informar os seguintes dados:
+        - Nome da Rua
+        - Número da casa
+        - Bairro
+        - Cidade
+        - Estado
+    A mensagem que o programa deverá apresentar deverá ser o endereço completo, que foi informado pelo usuário, conforme o exemplo abaixo:
+        Rua NOME_DA_RUA, nº NÚMERO_DA_CASA, Bairro NOME_DO_BAIRRO, Cidade de NOME_DA_CIDADE(SIGLA_ESTADO).
+    */
+
+    //ENTRADA
+    const rua = prompt("Informe o nome da sua rua:");
+    const numeroDaCasa = prompt("Informe o número da sua casa:");
+    const bairro = prompt("Informe o bairro em que você mora:");
+    const cidade = prompt("Informe a cidade que você mora:");
+    const estado = prompt("Informe a sigla do estado em que você mora:");
+    
+    //PROCESSAMENTO
+
+    
+    //SAÍDA
+    document.write(`Rua: ${rua}<br> Nº: ${numeroDaCasa}<br> Bairro: ${bairro}<br> Cidade: ${cidade}(${estado})`);
+</script>

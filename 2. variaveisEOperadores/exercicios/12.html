@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: Dias perdidos por fumar
+    Peça para o usuário informar a quantidade de cigarros fumados por dia e a quantidade de anos que fuma. Apresente o total de dias perdidos, 
+    considerando que cada cigarro reduz a vida em 10 minutos.
+    */
+
+    //ENTRADA
+    const cigarrosPorDia = Number(prompt("Informe a quantidade de cigarros fumados por dia:"));
+    const anosFumando = Number(prompt("Informe a quantidade de anos que você fuma:"));
+    
+    //PROCESSAMENTO
+    const tempoPerdido = (cigarrosPorDia * 10) * (365 * anosFumando);
+    
+    //SAÍDA
+    document.write(`Você fuma ${cigarrosPorDia} cigarros por dia há mais de ${anosFumando} anos. Você já perdeu ${tempoPerdido} minutos de vida`);
+</script>

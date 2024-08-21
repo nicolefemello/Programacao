@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    Problema: Nome completo
+    Peça para o usuário informar o seu nome, o nome do meio e o seu último nome. Após, o programa deverá apresentar a seguinte mensagem:
+        O seu nome completo é NOME NOME_DO_MEIO ÚLTIMO_NOME.
+    */
+
+    //ENTRADA
+    const nome = prompt("Informe seu nome:");
+    const nomeDoMeio = prompt("Informe seu nome do meio:");
+    const ultimoNome = prompt("Informe seu último nome:");
+
+    //PROCESSAMENTO
+    const nomeCompleto = nome + " " + nomeDoMeio + " " + ultimoNome;
+
+    //SAÍDA
+    document.write(`O seu nome completo é ${nomeCompleto}`);
+</script>

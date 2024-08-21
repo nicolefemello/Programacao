@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: IDADE HUMANA
+    É sabido que os caẽs amadurecem mais rapidamente do que os seres humanos (na verdade, alguns seres humanos parecem nunca 
+    amadurecer).
+     Calcule a idade do seu cão, baseada nos seguintes fatores:
+     - cães de porte pequeno: fator 5
+     - cães de porte médio: fator 6
+     - cães grandes: fator 7.
+    */
+
+    //ENTRADA
+    const idade = Number(prompt("Informe a idade de seu cão:"));
+    const porte = prompt("Informe o porte do seu cão: (P-PORTE PEQUENO, M-PORTE MÉDIO ou G-PORTE GRANDE)").toUpperCase();
+    //PROCESSAMENTO
+    let mensagemFinal = "";
+    const idadeHumanaP = idade * 5;
+    const idadeHumanaM = idade * 6;
+    const idadeHumanaG = idade * 7;
+    (porte == "P") ? mensagemFinal = `Seu cão de porte pequeno tem ${idade}, mas se ele fosse humano ele teria ${idadeHumanaP} anos.` : (porte == "M") ? mensagemFinal = `Seu cão de porte médio tem ${idade}, mas se ele fosse humano ele teria ${idadeHumanaM} anos.` : mensagemFinal = `Seu cão de porte grande tem ${idade}, mas se ele fosse humano ele teria ${idadeHumanaG} anos.`;
+    //SAÍDA
+    alert(`${mensagemFinal}`);
+</script>

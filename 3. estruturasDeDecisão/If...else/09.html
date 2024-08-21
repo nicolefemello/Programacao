@@ -1,0 +1,115 @@
+<script>
+    /*
+    PROBLEMA: OPERAÇÃO MATEMÁTICA
+    Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação 
+    deve ser acompanhado de uma frase que diga se o número é:
+    - par ou ímpar;
+    - positivo ou negativo;
+    - inteiro ou decimal.
+    */
+
+    //ENTRADA
+    const num1 = Number(prompt("Informe um número:"));
+    const num2 = Number(prompt("Informe outro número:"));
+    const operador = prompt("Informe a operação que deseja fazer: (A-ADIÇÃO, S-SUBTRAÇÃO, M-MULTIPLICAÇÃO ou D-DIVISÃO)");
+
+    //PROCESSAMENTO
+    const operacao = operador.toUpperCase();
+
+    //operação
+    if (operacao == "A") {
+        const adicao = num1 + num2;
+        alert(`${adicao}.`);
+        //par ou ímpar
+        if (adicao % 2 == 0) {
+            alert("Par");
+        } else {
+            alert("Ímpar");
+        }
+        //positivo ou negativo
+        if (adicao > 0) {
+            alert("Positivo");
+        } else if (adicao < 0) {
+            alert("Negativo");
+        } else {
+            alert("Neutro");
+        }
+        //inteiro ou decimal
+        if (Number.isInteger(adicao)) {
+            alert("Inteiro");
+        } else {
+            alert("Decimal");
+        }
+    } else if (operacao == "S") {
+        const subtracao = num1 - num2;
+        alert(`${subtracao}.`);
+        //par ou ímpar
+        if (subtracao % 2 == 0) {
+            alert("Par");
+        } else {
+            alert("Ímpar");
+        }
+        //positivo ou negativo
+        if (subtracao > 0) {
+            alert("Positivo");
+        } else if (subtracao < 0) {
+            alert("Negativo");
+        } else {
+            alert("Neutro");
+        }
+        //inteiro ou decimal
+        if (Number.isInteger(subtracao)) {
+            alert("Inteiro");
+        } else {
+            alert("Decimal");
+        }
+    } else if (operacao == "M") {
+        const multiplicacao = num1 * num2;
+        alert(`${multiplicacao}.`);
+        //par ou ímpar
+        if (multiplicacao % 2 == 0) {
+            alert("Par");
+        } else {
+            alert("Ímpar");
+        }
+        //positivo ou negativo
+        if (multiplicacao > 0) {
+            alert("Positivo");
+        } else if (multiplicacao < 0) {
+            alert("Negativo");
+        } else {
+            alert("Neutro");
+        }
+        //inteiro ou decimal
+        if (Number.isInteger(multiplicacao)) {
+            alert("Inteiro");
+        } else {
+            alert("Decimal");
+        }
+    } else if (operacao == "D") {
+        const divisao = num1 / num2;
+        alert(`${divisao}.`);
+        //par ou ímpar
+        if (divisao % 2 == 0) {
+            alert("Par");
+        } else {
+            alert("Ímpar");
+        }
+        //positivo ou negativo
+        if (divisao > 0) {
+            alert("Positivo");
+        } else if (divisao < 0) {
+            alert("Negativo");
+        } else {
+            alert("Neutro");
+        }
+        //inteiro ou decimal
+        if (Number.isInteger(divisao)) {
+            alert("Inteiro");
+        } else {
+            alert("Decimal");
+        }
+    } else {
+        alert("Operação Inválida!");
+    }
+</script>

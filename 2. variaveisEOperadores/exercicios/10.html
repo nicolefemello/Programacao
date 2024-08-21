@@ -1,0 +1,23 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: Problema 10: Dias para segundos
+    Peça para o usuário informar uma data em dias com horas, minutos e segundos e retorne a data em segundos, considerando quantos segundos já se 
+    passaram desde o início do ano informado pelo usuário.
+    */
+
+    //ENTRADA
+    const dias = Number(prompt("Informe a quanitidade de dias:"));
+    const horas = Number(prompt("Informe a quantidade de horas:"));
+    const minutos = Number(prompt("Informe a quantidade de munutos:"));
+    const segundos = Number(prompt("Informe a quantidade de segundos:"));
+    
+    //PROCESSAMENTO
+    const segundosPorDia = dias * 24 * 60 * 60;
+    const segundosPorHora = horas * 60 * 60;
+    const segundosPorMinuto = minutos * 60;
+    const segundosPassados = segundosPorDia + segundosPorHora + segundosPorMinuto + segundos;
+
+    //SAÍDA
+    document.write(`Se passaram ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos. Ao todo foram ${segundosPassados} segundos.`)
+</script>

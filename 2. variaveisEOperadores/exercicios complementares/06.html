@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: Conversão de moedas
+    O usuário do programa pretende viajar para os Estados Unidos da América. Peça para ele informar quantos dólares levará para gastar durante a 
+    viagem. Também peça para o usuário informar a cotação do dólar. Ao final, apresente, em reais, quanto o usuário gastará na viagem.
+    */
+
+    //ENTRADA
+    const dolares = Number(prompt("Informe quantos dólares você levará para a viagem:"));
+    const cotacao = Number(prompt("Informe a cotação do dólar hoje:"));
+    
+    //PROCESSAMENTO
+    const reais = dolares * cotacao;
+    
+    //SAÍDA
+    document.write(`Você está levando U$$ ${dolares.toFixed(2)}, que equivale a R$ ${reais.toFixed(2)} com a cotação atual`);
+</script>

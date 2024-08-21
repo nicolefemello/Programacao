@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: MEIO DE TRANSPORTE MAIS BARATO
+    Faça um script que peça para o usuário informar o preço do litro do combustível e a quantidade de litros utilizados para se 
+    deslocar para o trabalho diariamente.
+    Peça também ao programa para o usuário informar o preço do transporte público que deverá pagar para se deslocar ao trabalho 
+    diariamente.
+    Verifique qual é o meio de transporte mais barato e apresente em tela, especificando quanto custará para ir e voltar do 
+    trabalho diariamente.
+    */
+
+    //ENTRADA
+    const precoLitro = Number(prompt("Informe o valor do litro do combustível:"));
+    const litrosUtilizados = Number(prompt("Informe a quantidade de litros utilizados para se deslocar até o trabalho diariamente:"));
+    const precoTransportePublico = Number(prompt("Informe o preço do transporte público para se deslocar até o trabalho:"));
+
+    //PROCESSAMENTO
+    const valorTransporteProprio = precoLitro * (litrosUtilizados * 2);
+    const valorTransportePublico = precoLitro * 2;
+    let mensagemFinal = "";
+    (valorTransporteProprio < precoTransportePublico) ? mensagemFinal = `Ir com transporte próprio é mais barato, gastando por dia ${valorTransporteProprio} reais.` : mensagemFinal = `Ir com transporte público é mais barato, gastando por dia ${valorTransportePublico} reais.`;
+    //SAÍDA
+    
+    alert(`${mensagemFinal}`);
+</script>
