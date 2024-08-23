@@ -1,5 +1,5 @@
 <script>
-    /* arrumar!
+    /* 
     PROBLEMA: TESTA LADOS DE TRIÂNGULO
     Receba os três lados de um triângulo. Informe se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: 
     equilátero, isósceles ou escaleno. Dica: pesquise sobre a regra para saber se os lados formam um triângulo e também sobre os tipos de triângulos.
@@ -10,17 +10,17 @@
         "Informe em cm o primeiro lado de um triângulo:",
         "Informe em cm o segundo lado de um triângulo:",
         "Informe em cm o terceiro lado de um triângulo:"
-    ]
+    ];
     let medidas = [];
 
     //PROCESSAMENTO
-    for (let pergunta of pergunta) {
-        let criaPergunta = Number(prompt(pergunta));
-        while (criaPergunta == NaN) {
+    for (let pergunta of perguntas) {
+        let criaPergunta =  prompt(pergunta);
+        while (isNaN(criaPergunta) || /\s/.test(criaPergunta) || criaPergunta == '') {
             alert("Informe um número!");
-            criaPergunta = Number(prompt(criaPergunta));
+            criaPergunta = prompt(pergunta);
         }
-        if (criaPergunta == Number) {
+        if (!isNaN(criaPergunta)) {
             medidas.push(criaPergunta);
         }
     }
