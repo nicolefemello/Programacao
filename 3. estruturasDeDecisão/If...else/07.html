@@ -1,5 +1,5 @@
 <script>
-    /* arrumar!
+    /*
     PROBLEMA: CAIXA ELETRÔNICO
     Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão 
     fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar 
@@ -19,30 +19,25 @@
     for (let perguntar of pergunta) {
         let criaPergunta = Number(prompt(perguntar));
         while (isNaN(criaPergunta) || /\s/.test(criaPergunta) || criaPergunta == "" || criaPergunta < 10 || criaPergunta > 600) {
-            alert("Informe um número válido!");
+            alert("Informe um número válido, entre R$ 10,00 e R$ 600,00!");
             criaPergunta = Number(prompt(perguntar));
         }
         if (!isNaN(criaPergunta)) {
             valores.push(criaPergunta);
         }
-        for (let valor of valores) {
-            if (valor >= 100) {
-                const nota100 = Math.floor(valor / 100);
-            } else if ((valor % 100) > 50) {
-                const nota50 = Math.floor((valor - 100) / 50);
-            } else if ((valor % 50) > 10) {
-                const nota10 = Math.floor((valor - (nota50 * 50)) / 100);
-            } else if ((valor % 10) > 5) {
-                const nota5 = Math.floor((valor - (nota10 * 10) / 500));
-            } else if ((valor % 5) > 1) {
-                const nota1 = Math.floor(valor / 5);
-            }
-        }
-        console.log(nota100, nota50, nota10, nota5, nota1);
     }
+    const notas100 = Math.floor(valores / 100);
+    const notas50 = Math.floor((valores - (notas100 * 100)) / 50);
+    const notas10 = Math.floor((valores - (notas50 * 50) - (notas100 * 100)) / 10);
+    const notas5 = Math.floor((valores - (notas10 * 10) - (notas50 * 50) - (notas100 * 100)) / 5);
+    const notas1 = Math.floor((valores - (notas5 * 5) - (notas10 * 10) - (notas50 * 50) - (notas100 * 100)) % 10);
 
-
-
-    //SAÍDA 
-    alert(`Para sacar a quantia de R$ ${valor}, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.`);
+    //SAÍDA
+    if (valores >= 100) {
+        alert(`Para sacar a quantia de R$ ${Number(valores).toFixed(2)}, o script fornece:\n ${notas100} nota(s) de 100\n ${notas50} nota(s) de 50\n ${notas10} nota(s) de 10\n ${notas5} nota(s) de 5 e\n ${notas1} nota(s) de 1.`);
+    } else if (valores >= 50) {
+        alert(`Para sacar a quantia de R$ ${Number(valores).toFixed(2)}, o script fornece:\n ${notas50} nota(s) de 50\n ${notas10} nota(s) de 10\n ${notas5} nota(s) de 5 e\n ${notas1} nota(s) de 1.`);
+    } else {
+        alert(`Para sacar a quantia de R$ ${Number(valores).toFixed(2)}, o script fornece:\n ${notas10} nota(s) de 10\n ${notas5} nota(s) de 5 e\n ${notas1} nota(s) de 1.`);
+    }
 </script>
