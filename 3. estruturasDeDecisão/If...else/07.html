@@ -10,23 +10,39 @@
     */
 
     //ENTRADA
-    const saque = Number(prompt("Informe o valor que deseja sacar:"));
+    const pergunta = [
+        "Informe o valor que deseja sacar entre R$ 10,00 e R$ 600,00"
+    ];
+    const valores = [];
 
     //PROCESSAMENTO
-    const nota100 = Math.floor(saque / 100);
-    const nota50 = Math.floor((saque - (nota100 * 100)) / 50);
-    const nota10 = Math.floor((saque - (nota50 * 50)) / 100);
-    const nota5 = Math.floor((saque - (nota10 * 10) / 500));
-    const nota1 = Math.floor(saque % 10);
+    for (let perguntar of pergunta) {
+        let criaPergunta = Number(prompt(perguntar));
+        while (isNaN(criaPergunta) || /\s/.test(criaPergunta) || criaPergunta == "" || criaPergunta < 10 || criaPergunta > 600) {
+            alert("Informe um número válido!");
+            criaPergunta = Number(prompt(perguntar));
+        }
+        if (!isNaN(criaPergunta)) {
+            valores.push(criaPergunta);
+        }
+        for (let valor of valores) {
+            if (valor >= 100) {
+                const nota100 = Math.floor(valor / 100);
+            } else if ((valor % 100) > 50) {
+                const nota50 = Math.floor((valor - 100) / 50);
+            } else if ((valor % 50) > 10) {
+                const nota10 = Math.floor((valor - (nota50 * 50)) / 100);
+            } else if ((valor % 10) > 5) {
+                const nota5 = Math.floor((valor - (nota10 * 10) / 500));
+            } else if ((valor % 5) > 1) {
+                const nota1 = Math.floor(valor / 5);
+            }
+        }
+        console.log(nota100, nota50, nota10, nota5, nota1);
+    }
+
+
 
     //SAÍDA 
-    if (saque >= 10 && saque <= 600) {
-        if (saque >= 100) {
-            alert(`Para sacar a quantia de R$ ${saque.toFixed(2).replace(".", ",")}, o script fornece\n ${nota100} nota(s) de R$100,\n ${nota50} nota(s) de R$50,\n ${nota10} nota(s) de R$10,\n ${nota5} nota(s) de R$5 e\n ${nota1} nota(s) de R$1`);
-        }
-
-
-    } else {
-        alert("Não é possível realizar este saque!");
-    }
+    alert(`Para sacar a quantia de R$ ${valor}, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.`);
 </script>
