@@ -1,19 +1,67 @@
 <meta charset="UTF-8">
 <script>
-    /* terminar!
+    /*
     PROBLEMA: ESTAÇÃO DO ANO
     Faça um script que pergunte para a pessoa em qual hemisfério ela está e qual o mês atual.
     De acordo com as respostas, informe qual a estação do ano correspondente.
     */
 
     //ENTRADA
-    const perguntas = [
-        "Em que hemiisfério você está?"
-    ]
-    
+    const hemisferio = prompt("Informe o hemisfério que você está (N-NORTE ou S-SUL):").toUpperCase();
+    const mes = prompt("Informe o mês atual:").toLowerCase();
+
     //PROCESSAMENTO
 
 
     //SAÍDA
-
+    switch (hemisferio) {
+        case "N":
+            switch (mes) {
+                case 'janeiro':
+                case 'fevereiro':
+                case "março":
+                    alert("Inverno!");
+                    break;
+                case 'abril':
+                case 'maio':
+                case 'junho':
+                    alert("Primavera!");
+                    break;
+                case 'julho':
+                case 'agosto':
+                case 'setembro':
+                    alert("Verão!");
+                    break;
+                case 'outubro':
+                case 'novembro':
+                case 'dezembro':
+                    alert("Outono!");
+                    break;
+            }
+            break;
+        case "S":
+        switch (mes) {
+                case 'janeiro':
+                case 'fevereiro':
+                case "março":
+                    alert("Verão!");
+                    break;
+                case 'abril':
+                case 'maio':
+                case 'junho':
+                    alert("Outono!");
+                    break;
+                case 'julho':
+                case 'agosto':
+                case 'setembro':
+                    alert("Inverno!");
+                    break;
+                case 'outubro':
+                case 'novembro':
+                case 'dezembro':
+                    alert("Primavera!");
+                    break;
+            }
+            break;
+    }
 </script>

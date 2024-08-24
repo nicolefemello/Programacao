@@ -6,20 +6,17 @@
     */
 
     //ENTRADA
-    const num = Number(prompt("Informe um número inteiro:"));
+    const num = parseInt(prompt("Informe um número inteiro:"));
 
     //PROCESSAMENTO
-    const inteiro = Number.isInteger(num);
-    const par = num % 2 == 0;
-    const impar = num % 2 == 1;
-    
+    const par = num % 2 == 0;    
 
     //SAÍDA
-    switch (inteiro) {
-        case par:
+    switch (par) {
+        case true:
             alert("Par!");
             break;
-        case impar:
+        default:
             alert("Ímpar!");
             break;
     }
