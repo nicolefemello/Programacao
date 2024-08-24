@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: VERIFICAR NÚMERO PAR OU ÍMPAR
+    Faça um script que peça um número inteiro e determine se ele é par ou ímpar.
+    */
+
+    //ENTRADA
+    const num = Number(prompt("Informe um número inteiro:"));
+
+    //PROCESSAMENTO
+    const inteiro = Number.isInteger(num);
+    const par = num % 2 == 0;
+    const impar = num % 2 == 1;
+    
+
+    //SAÍDA
+    switch (inteiro) {
+        case par:
+            alert("Par!");
+            break;
+        case impar:
+            alert("Ímpar!");
+            break;
+    }
+</script>

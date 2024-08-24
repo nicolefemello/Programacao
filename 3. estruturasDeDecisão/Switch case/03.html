@@ -1,0 +1,134 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: CÁLCULO ENTRE DOIS NÚMEROS
+    Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser 
+    acompanhado de uma frase que diga se o número é:
+    - par ou ímpar;
+    - positivo ou negativo;
+    - inteiro ou decimal.
+    */
+
+    //ENTRADA
+    const num1 = Number(prompt("Informe um número:"));
+    const num2 = Number(prompt("Informe outro número:"));
+    const operacao = prompt("Informe qual operação deseja realzar (A-ADIÇÃO, S-SUBTRAÇÃO, M-MULTIPLCAÇÃO ou D-DIVISÃO):").toUpperCase();
+
+    //PROCESSAMENTO
+
+    //SAÍDA
+    switch (operacao) {
+        case 'A':
+            const adicao = num1 + num2;
+            alert(`A soma dos números é: ${adicao}`);
+            switch (adicao % 2 == 0) {
+                case true:
+                    alert("Par");
+                    break;
+                default:
+                    alert("Ímpar");
+                    break;
+            }
+            switch (adicao >= 0) {
+                case true:
+                    alert("Positivo");
+                    break;
+                default:
+                    alert("Negativo");
+                    break;
+            }
+            switch (Number.isInteger(adicao)) {
+                case true:
+                    alert("Inteiro");
+                    break;
+                default:
+                    alert("Decimal");
+                    break;
+            }
+            break;
+        case 'S':
+            const subtracao = num1 - num2;
+            alert(`A subtração dos números é: ${subtracao}`);
+            switch (subtracao % 2 == 0) {
+                case true:
+                    alert("Par");
+                    break;
+                default:
+                    alert("Ímpar");
+                    break;
+            }
+            switch (subtracao >= 0) {
+                case true:
+                    alert("Positivo");
+                    break;
+                default:
+                    alert("Negativo");
+                    break;
+            }
+            switch (Number.isInteger(subtracao)) {
+                case true:
+                    alert("Inteiro");
+                    break;
+                default:
+                    alert("Decimal");
+                    break;
+            }
+            break;
+        case 'M':
+            const multiplicacao = num1 * num2;
+            alert(`A multiplicação dos números é: ${multiplicacao}`);
+            switch (multiplicacao % 2 == 0) {
+                case true:
+                    alert("Par");
+                    break;
+                default:
+                    alert("Ímpar");
+                    break;
+            }
+            switch (multiplicacao >= 0) {
+                case true:
+                    alert("Positivo");
+                    break;
+                default:
+                    alert("Negativo");
+                    break;
+            }
+            switch (Number.isInteger(multiplicacao)) {
+                case true:
+                    alert("Inteiro");
+                    break;
+                default:
+                    alert("Decimal");
+                    break;
+            }
+            break;
+        case 'D':
+            const divisao = num1 / num2;
+            alert(`A divisão dos números é: ${divisao}`);
+            switch (divisao % 2 == 0) {
+                case true:
+                    alert("Par");
+                    break;
+                default:
+                    alert("Ímpar");
+                    break;
+            }
+            switch (divisao >= 0) {
+                case true:
+                    alert("Positivo");
+                    break;
+                default:
+                    alert("Negativo");
+                    break;
+            }
+            switch (Number.isInteger(divisao)) {
+                case true:
+                    alert("Inteiro");
+                    break;
+                default:
+                    alert("Decimal");
+                    break;
+            }
+            break;
+    }
+</script>

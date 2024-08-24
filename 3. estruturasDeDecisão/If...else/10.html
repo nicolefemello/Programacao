@@ -34,7 +34,9 @@
     }
 
     //SAÍDA
-    if (participacao.length <= 2) {
+    if (participacao.length > 0 && participacao.length < 2) {
+        alert("Classificação: Inocente");
+    } else if (participacao.length == 2) {
         alert("Classificação: Suspeito(a)");
     } else if (participacao.length >= 3 && participacao.length <= 4) {
         alert("Classificação: Cúmplice");
