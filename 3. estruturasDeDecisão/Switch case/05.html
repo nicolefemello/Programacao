@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <script>
-    /* arrumar!
+    /*
     PROBLEMA: INVESTIGAÇÃO CRIMINAL
     Faça um script que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
     - "Telefonou para a vítima?"
@@ -14,37 +14,39 @@
 
     //ENTRADA
     const perguntas = [
-        "Você telefonou para a vítima Responda com SIM ou NÃO?",
-        "Você esteve no local do crime Responda com SIM ou NÃO?",
-        "Você mora perto da vítima Responda com SIM ou NÃO?",
-        "Você devia algo para a vítima Responda com SIM ou NÃO?",
-        "Você já trabalhou junto com a vítima Responda com SIM ou NÃO?"
+        "Você telefonou para a vítima? (Responda com S-SIM ou N-NÃO)",
+        "Você esteve no local do crime? (Responda com S-SIM ou N-NÃO)",
+        "Você mora perto da vítima? (Responda com S-SIM ou N-NÃO)",
+        "Você devia algo para a vítima? (Responda com S-SIM ou N-NÃO)",
+        "Você já trabalhou junto com a vítima? (Responda com S-SIM ou N-NÃO)"
     ]
     let participacao = [];
 
     //PROCESSAMENTO
     for (pergunta of perguntas) {
         let criadorVariavel = prompt(pergunta).toUpperCase();
-        while (criadorVariavel !== "SIM" && criadorVariavel !== "NÃO") {
+        while (criadorVariavel !== "S" && criadorVariavel !== "N") {
             alert('Informe uma resposta válida!');
             criadorVariavel = prompt(pergunta).toUpperCase();
         }
-        switch (criadorVariavel == "SIM") {
-            case true:
+        switch (criadorVariavel) {
+            case "S":
                 participacao.push(criadorVariavel);
                 break;
         }
     }
 
     //SAÍDA
-    switch (participacao) {
-        case (participacao.length >= 0 && participacao.length < 2):
+    switch (participacao.length) {
+        case 0:
+        case 1:
             alert("Classificação: Inocente");
             break;
-        case (participacao.length == 2):
+        case 2:
             alert("Classificação: Suspeito(a)");
             break;
-        case (participacao.length >= 3 && participacao.length <= 4):
+        case 3:
+        case 4:
             alert("Classificação: Cúmplice");
             break;
         default:
