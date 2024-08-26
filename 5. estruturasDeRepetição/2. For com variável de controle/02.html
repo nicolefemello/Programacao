@@ -9,27 +9,28 @@
     //ENTRADA
     let quantidadeNotas = prompt("Qual quantidade de notas que o aluno obteve?");
     let notas = [];
+
     while (isNaN(quantidadeNotas) || /\s/.test(quantidadeNotas) || quantidadeNotas == "" || quantidadeNotas <= 0) {
         alert("Preencha corretamente a quantidade de notas obtidas pelo aluno!");
         quantidadeNotas = prompt("Qual quantidade de notas que o aluno obteve?");
-
-        for (i = 1; i <= quantidadeNotas; i++) {
-            let pergunta = prompt(`Informe a nota ${i} de seu aluno:`);
-            while (isNaN(pergunta) || /\s/.test(pergunta) || pergunta == "" || (pergunta < 0 && pergunta > 10)) {
-                alert("Preencha corretamente a nota de seu aluno!");
-                pergunta = prompt(`Informe a nota ${i} de seu aluno:`);
-            }
-    //PROCESSAMENTO
-            if (Number(pergunta)) {
-                notas.push(pergunta);
-            }
+    }
+    for (i = 0; i <= quantidadeNotas; i++) {
+        let pergunta = prompt(`Informe a nota ${i + 1} de seu aluno:`);
+        while (isNaN(pergunta) || /\s/.test(pergunta) || pergunta == "" || (pergunta < 0 && pergunta > 10)) {
+            alert("Preencha corretamente a nota de seu aluno!");
+            pergunta = prompt(`Informe a nota ${i} de seu aluno:`);
         }
-
-        for (i = 0; i <= notas.length; i++) {
-            let somaNotas = 0;
-            somaNotas + notas[i];
+        //PROCESSAMENTO
+        if (Number(pergunta)) {
+            notas.push(pergunta);
         }
     }
+
+    for (i = 0; i <= notas.length; i++) {
+        let somaNotas = 0;
+        somaNotas + notas[i];
+    }
+
     const media = somaNotas / quantidadeNotas;
 
     //SAÍDA

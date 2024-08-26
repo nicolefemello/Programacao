@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <script>
-    /* arrumar!
+    /*
     PROBLEMA: LETRAS REPETIDAS
     Considere a lista de letras abaixo:
     let listaDeLetras = ["a", "b", "d", "e", "E", "F", "C", "U", "u", "e", "W", "D"];
@@ -13,20 +13,19 @@
     //ENTRADA
     let listaDeLetras = ["a", "b", "d", "e", "E", "F", "C", "U", "u", "e", "W", "D"];
     let letras = [];
+    let contador = [];
 
 
     //PROCESSAMENTO
     for (let i = 0; i < listaDeLetras.length; i++) {
         let letra = listaDeLetras[i].toLowerCase();
-        letras.push(letra);
 
-        letras.sort();
-
-        if (letras.indexOf(letra) != -1) {
-            letras.pop();
+        if (contador.indexOf(letra) == -1) {
+            contador.push(letra);
+            letras.push(letra);
         }
     }
-    
+    letras.sort();
 
     //SAÍDA
     document.write(`<li><strong>Lista de letras:</strong> ${listaDeLetras.join(", ")}</li>
