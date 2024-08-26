@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: VALIDAR NÚMERO PRIMO
+    Faça um programa que peça para o usuário informar um número. Identifique se o número fornecido pelo usuário é um número primo e apresente na tela.
+    */
+
+    //ENTRADA
+    let num = Number(prompt("Informe um número inteiro maior que 1:"));
+        while (isNaN(num) || /\s/.test(num) || num == "" || num <= 0 || num != Math.floor(num)) {
+            alert("Por favor, informe um número inteiro maior que 1!");
+            num = Number(prompt("Informe um número inteiro maior que 1:"));
+        }
+    let multiplos = [];
+
+    //PROCESSAMENTO
+    for (let i = 1; i <= num; i++) {
+        if (num % i == 0) {
+            multiplos.push(num);
+        }
+    }
+    console.log(multiplos)
+    //SAÍDA
+    if (multiplos.length == 2) {
+        document.write(`O número ${num} é um número primo!`);
+    } else {
+        document.write(`O número ${num} não é um número primo!`);
+    }
+</script>
