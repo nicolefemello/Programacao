@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <script>
-    /* arrumar!
+    /*
     PROBLEMA: MÉDIA DO ALUNO
     Pergunte ao professor quantas notas o aluno obteve. Na sequência, usando for, peça para o professor informar todas as notas do aluno.
     Calcule a média das notas e apresente o resultado na tela.
@@ -9,18 +9,19 @@
     //ENTRADA
     let perguntar = ["Qual quantidade de notas que o aluno obteve?"];
     let notas = [];
+    let quantidadeNotas;
 
     for (let pergunta1 of perguntar) {
-        let quantidadeNotas = prompt(pergunta1);
+        quantidadeNotas = Number(prompt(pergunta1));
         while (isNaN(quantidadeNotas) || /\s/.test(quantidadeNotas) || quantidadeNotas == "" || quantidadeNotas <= 0) {
             alert("Preencha corretamente a quantidade de notas obtidas pelo aluno!");
-            quantidadeNotas = prompt(pergunta1);
+            quantidadeNotas = Number(prompt(pergunta1));
         }
-        for (i = 0; i < quantidadeNotas; i++) {
-            let pergunta = prompt(`Informe a nota ${i + 1} de seu aluno:`);
-            while (isNaN(pergunta) || /\s/.test(pergunta) || pergunta == "" || (pergunta < 0 && pergunta > 10)) {
+        for (let i = 0; i < quantidadeNotas; i++) {
+            let pergunta = Number(prompt(`Informe a nota ${i + 1} de seu aluno:`));
+            while (isNaN(pergunta) || /\s/.test(pergunta) || pergunta == "" || pergunta < 0 || pergunta > 10) {
                 alert("Preencha corretamente a nota de seu aluno!");
-                pergunta = prompt(`Informe a nota ${i + 1} de seu aluno:`);
+                pergunta = Number(prompt(`Informe a nota ${i + 1} de seu aluno:`));
             }
             //PROCESSAMENTO
             if (Number(pergunta)) {
@@ -28,15 +29,12 @@
             }
         }
     }
-
-    console.log(notas);
-    for (i = 0; i < notas.length; i++) {
-        let somaNotas = 0;
-        somaNotas + notas[i];
+    let somaNotas = 0;
+    for (let i = 0; i < notas.length; i++) {
+        somaNotas += notas[i];
     }
-
+    console.log(somaNotas);
     const media = somaNotas / quantidadeNotas;
-
     //SAÍDA
     document.write(`A média do aluno é: ${media.toFixed(1)}`);
 </script>
