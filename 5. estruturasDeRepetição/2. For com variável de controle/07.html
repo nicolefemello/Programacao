@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: TAXA DE CRESCIMENTO POPULACIONAL
+    Supondo que a população de um país seja da ordem de 80.000 habitantes, com uma taxa anual de crescimento de 3%, identifique quantos anos serão necessários 
+    para que o número de habitandes atinja 200.000 habitantes.
+    */
+
+    //ENTRADA
+    let anos = 0;
+
+    //PROCESSAMENTO
+    for (let habitantes = 80000; habitantes < 200000; anos++) {
+        habitantes += habitantes * 0.03;
+    }
+
+    //SAÍDA
+    document.write(`O país levará cerca de ${anos} anos para que saia de 80.000 habitantes para 200.000 habitantes pela taxa anual de crescimento de 3%`);
+</script>

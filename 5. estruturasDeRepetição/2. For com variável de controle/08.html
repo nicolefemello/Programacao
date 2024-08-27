@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: SOMA E MÉDIA
+    Faça um programa que leia 5 números e informe a soma e média dos números.
+    */
+
+    //ENTRADA
+    let perguntas = [
+        "Informe o número 1:",
+        "Informe o número 2:",
+        "Informe o número 3:",
+        "Informe o número 4:",
+        "Informe o número 5:"
+    ];
+    let numeros = [];
+    for (let i = 0; i < perguntas.length; i++) {
+        let gerarPergunta = Number(prompt(perguntas[i]));
+        while (isNaN(gerarPergunta) || /\s/.test(gerarPergunta) || gerarPergunta == "") {
+            alert(`Informe o número ${i + 1} corretamente!`);
+            gerarPergunta = Number(prompt(perguntas[i]));
+        }
+        if (!isNaN(gerarPergunta)) {
+            numeros.push(gerarPergunta);
+        }
+    }
+
+    //PROCESSAMENTO
+    let soma = 0;
+    for (let i = 0; i < numeros.length; i++) {
+        soma += numeros[i];
+    }
+
+    //SAÍDA
+    document.write(`<li><strong>Números informados:</strong> ${numeros.join(", ")}</li>
+    <li><strong>A soma destes números é:</strong> ${soma}</li>`);
+</script>
