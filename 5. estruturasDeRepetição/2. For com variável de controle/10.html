@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: REPRESENTANTE DE SALA
+    Peça para o programa perguntar ao professor regente o nome dos três candidatos a representante da sala.
+    Peça também para o programa perguntar ao professor regente a quantidade de alunos votantes.
+    Desenvolva um programa que armazene o voto de cada aluno da sala e apresente o resultado da votação, com o quantitativo de votos e também a porcentagem de votos de 
+    cada candidato a representante de sala.
+    */
+
+    //ENTRADA
+    const perguntas = [
+        "Nome do primeiro candidato a representante da sala:",
+        "Nome do segundo candidato a representante da sala:",
+        "Nome do terceiro candidato a representante da sala:"
+    ];
+    let candidatos = [];
+    for (let i = 0; i < perguntas.length; i++) {
+        let gerarPergunta = prompt(perguntas[i]);
+        while (!isNaN(gerarPergunta) || /\s/.test(gerarPergunta) || gerarPergunta == "") {
+            alert(`Informe corrtemente o nome do candidato ${i + 1}!`);
+            gerarPergunta = prompt(perguntas[i]);
+        }
+        if (isNaN(gerarPergunta)) {
+            candidatos.push(gerarPergunta);
+        }
+    }
+    let alunos = Number(prompt("Informe a quantidade de alunos votantes:"));
+    while (isNaN(alunos) || /\s/.test(alunos) || alunos == "" || alunos < 1) {
+        alert("Informe corretamente a quantidade de alunos votantes!");
+        alunos = Number(prompt("Informe a quantidade de alunos votantes:"));
+
+    }
+
+    //PROCESSAMENTO
+    
+
+    //SAÍDA
+
+</script>
