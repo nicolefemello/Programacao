@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <script>
-    /*
+    /* terminar!
     PROBLEMA: REPRESENTANTE DE SALA
     Peça para o programa perguntar ao professor regente o nome dos três candidatos a representante da sala.
     Peça também para o programa perguntar ao professor regente a quantidade de alunos votantes.
@@ -10,16 +10,16 @@
 
     //ENTRADA
     const perguntas = [
-        "Nome do primeiro candidato a representante da sala:",
-        "Nome do segundo candidato a representante da sala:",
-        "Nome do terceiro candidato a representante da sala:"
+        "Nome do 1° candidato a representante da sala:",
+        "Nome do 2° candidato a representante da sala:",
+        "Nome do 3° candidato a representante da sala:"
     ];
     let candidatos = [];
     for (let i = 0; i < perguntas.length; i++) {
-        let gerarPergunta = prompt(perguntas[i]);
-        while (!isNaN(gerarPergunta) || /\s/.test(gerarPergunta) || gerarPergunta == "") {
-            alert(`Informe corrtemente o nome do candidato ${i + 1}!`);
-            gerarPergunta = prompt(perguntas[i]);
+        let gerarPergunta = prompt(perguntas[i]).toLowerCase();
+        while (!isNaN(gerarPergunta) || /\s/.test(gerarPergunta) || gerarPergunta == "" || candidatos.includes(gerarPergunta)) {
+            alert(`Informe corretamente o nome do candidato ${i + 1}!`);
+            gerarPergunta = prompt(perguntas[i]).toLowerCase();
         }
         if (isNaN(gerarPergunta)) {
             candidatos.push(gerarPergunta);
@@ -32,8 +32,28 @@
     }
 
     //PROCESSAMENTO
-    
+    let votosCandidato1 = [];
+    let votosCandidato2 = [];
+    let votosCandidato3 = [];
+    for (let i = 1; i <= alunos; i++) {
+        let perguntarVoto = prompt(`Candidato 1: ${candidatos[0]}\nCandidato 2: ${candidatos[1]}\nCandidato 3: ${candidatos[2]}\nInforme o voto do aluno ${i}:`).toLowerCase();
+        while (!isNaN(perguntarVoto) || /\s/.test(perguntarVoto) || perguntarVoto == "" || perguntarVoto != (candidatos[0] && candidatos[1] && candidatos[3])) {
+            alert(`Informe seu voto num candidato válido!`);
+            perguntarVoto = prompt(`Candidato 1: ${candidatos[0]}\nCandidato 2: ${candidatos[1]}\nCandidato 3: ${candidatos[2]}\nInforme o voto do aluno ${i}:`).toLowerCase();
+        }
+        switch (perguntarVoto) {
+            case candidatos[0]:
+                votosCandidato1.push(perguntarVoto);
+                break;
+            case candidatos[1]:
+                votosCandidato2.push(perguntarVoto);
+                break;
+            case candidatos[2]:
+                votosCandidato3.push(perguntarVoto);
+                break;
+        }
+    }
 
     //SAÍDA
-
+    document.write(``);
 </script>
