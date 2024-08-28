@@ -4,8 +4,8 @@
     PROBLEMA: REPRESENTANTE DE SALA
     Peça para o programa perguntar ao professor regente o nome dos três candidatos a representante da sala.
     Peça também para o programa perguntar ao professor regente a quantidade de alunos votantes.
-    Desenvolva um programa que armazene o voto de cada aluno da sala e apresente o resultado da votação, com o quantitativo de votos e também a porcentagem de votos de 
-    cada candidato a representante de sala.
+    Desenvolva um programa que armazene o voto de cada aluno da sala e apresente o resultado da votação, com o quantitativo de votos 
+    e também a porcentagem de votos de cada candidato a representante de sala.
     */
 
     //ENTRADA
@@ -32,30 +32,58 @@
     }
 
     //PROCESSAMENTO
-    /*refazer daqui para baixo'!*/
-    let votosCandidato1 = [];
-    let votosCandidato2 = [];
-    let votosCandidato3 = [];
+    let contadorCandidato1 = 0;
+    let contadorCandidato2 = 0;
+    let contadorCandidato3 = 0;
     for (let i = 1; i <= alunos; i++) {
         let perguntarVoto = prompt(`Candidato 1: ${candidatos[0]}\nCandidato 2: ${candidatos[1]}\nCandidato 3: ${candidatos[2]}\nInforme o voto do aluno ${i}:`).toLowerCase();
-        while (!isNaN(perguntarVoto) || /\s/.test(perguntarVoto) || perguntarVoto == "" || perguntarVoto != (candidatos[0] && candidatos[1] && candidatos[3])) {
+        while (!isNaN(perguntarVoto) || /\s/.test(perguntarVoto) || perguntarVoto == "" || !candidatos.includes(perguntarVoto)) {
             alert(`Informe seu voto num candidato válido!`);
             perguntarVoto = prompt(`Candidato 1: ${candidatos[0]}\nCandidato 2: ${candidatos[1]}\nCandidato 3: ${candidatos[2]}\nInforme o voto do aluno ${i}:`).toLowerCase();
         }
-        switch (perguntarVoto) {
-            case candidatos[0]:
-                votosCandidato1.push(perguntarVoto);
-                break;
-            case candidatos[1]:
-                votosCandidato2.push(perguntarVoto);
-                break;
-            case candidatos[2]:
-                votosCandidato3.push(perguntarVoto);
-                break;
+        if (perguntarVoto == candidatos[0]) {
+            contadorCandidato1++;
+        } else if (perguntarVoto == candidatos[1]) {
+            contadorCandidato2++;
+        } else {
+            contadorCandidato3++;
         }
     }
+    const porcentagemCandidato1 = (contadorCandidato1 / alunos) * 100;
+    const porcentagemCandidato2 = (contadorCandidato2 / alunos) * 100;
+    const porcentagemCandidato3 = (contadorCandidato3 / alunos) * 100;
+
 
     //SAÍDA
-    document.write(`Resultado da votação:<br>
-    <li></li>`);
+    if (contadorCandidato1 > contadorCandidato2 && contadorCandidato2 > contadorCandidato3) {
+        document.write(`Resultado da votação<br>
+    <li><strong>1° Lugar: ${candidatos[0]}</strong> com ${contadorCandidato1} votos! Este candidato obteve ${porcentagemCandidato1.toFixed(2)}% dos votos da sala</li>
+    <li><strong>2° Lugar: ${candidatos[1]}</strong> com ${contadorCandidato2} votos! Este candidato obteve ${porcentagemCandidato2.toFixed(2)}% dos votos da sala</li>
+    <li><strong>3° Lugar: ${candidatos[2]}</strong> com ${contadorCandidato3} votos! Este candidato obteve ${porcentagemCandidato3.toFixed(2)}% dos votos da sala</li>`);
+    } else if (contadorCandidato1 > contadorCandidato3 && contadorCandidato3 > contadorCandidato2) {
+        document.write(`Resultado da votação<br>
+    <li><strong>1° Lugar: ${candidatos[0]}</strong> com ${contadorCandidato1} votos! Este candidato obteve ${porcentagemCandidato1.toFixed(2)}% dos votos da sala</li>
+    <li><strong>2° Lugar: ${candidatos[2]}</strong> com ${contadorCandidato3} votos! Este candidato obteve ${porcentagemCandidato3.toFixed(2)}% dos votos da sala</li>
+    <li><strong>3° Lugar: ${candidatos[1]}</strong> com ${contadorCandidato2} votos! Este candidato obteve ${porcentagemCandidato2.toFixed(2)}% dos votos da sala</li>`);
+    } else if (contadorCandidato2 > contadorCandidato1 && contadorCandidato1 > contadorCandidato3) {
+        document.write(`Resultado da votação<br>
+    <li><strong>1° Lugar: ${candidatos[1]}</strong> com ${contadorCandidato2} votos! Este candidato obteve ${porcentagemCandidato2.toFixed(2)}% dos votos da sala</li>
+    <li><strong>2° Lugar: ${candidatos[0]}</strong> com ${contadorCandidato1} votos! Este candidato obteve ${porcentagemCandidato1.toFixed(2)}% dos votos da sala</li>
+    <li><strong>3° Lugar: ${candidatos[2]}</strong> com ${contadorCandidato3} votos! Este candidato obteve ${porcentagemCandidato3.toFixed(2)}% dos votos da sala</li>`);
+    } else if (contadorCandidato2 > contadorCandidato3 && contadorCandidato3 > contadorCandidato1) {
+        document.write(`Resultado da votação<br>
+    <li><strong>1° Lugar: ${candidatos[1]}</strong> com ${contadorCandidato2} votos! Este candidato obteve ${porcentagemCandidato2.toFixed(2)}% dos votos da sala</li>
+    <li><strong>2° Lugar: ${candidatos[2]}</strong> com ${contadorCandidato3} votos! Este candidato obteve ${porcentagemCandidato3.toFixed(2)}% dos votos da sala</li>
+    <li><strong>3° Lugar: ${candidatos[0]}</strong> com ${contadorCandidato1} votos! Este candidato obteve ${porcentagemCandidato1.toFixed(2)}% dos votos da sala</li>`);
+    } else if (contadorCandidato3 > contadorCandidato1 && contadorCandidato1 > contadorCandidato2) {
+        document.write(`Resultado da votação<br>
+    <li><strong>1° Lugar: ${candidatos[2]}</strong> com ${contadorCandidato3} votos! Este candidato obteve ${porcentagemCandidato3.toFixed(2)}% dos votos da sala</li>
+    <li><strong>2° Lugar: ${candidatos[0]}</strong> com ${contadorCandidato1} votos! Este candidato obteve ${porcentagemCandidato1.toFixed(2)}% dos votos da sala</li>
+    <li><strong>3° Lugar: ${candidatos[1]}</strong> com ${contadorCandidato2} votos! Este candidato obteve ${porcentagemCandidato2.toFixed(2)}% dos votos da sala</li>`);
+    } else {
+        document.write(`Resultado da votação<br>
+    <li><strong>1° Lugar: ${candidatos[2]}</strong> com ${contadorCandidato3} votos! Este candidato obteve ${porcentagemCandidato3.toFixed(2)}% dos votos da sala</li>
+    <li><strong>2° Lugar: ${candidatos[1]}</strong> com ${contadorCandidato2} votos! Este candidato obteve ${porcentagemCandidato2.toFixed(2)}% dos votos da sala</li>
+    <li><strong>3° Lugar: ${candidatos[0]}</strong> com ${contadorCandidato1} votos! Este candidato obteve ${porcentagemCandidato1.toFixed(2)}% dos votos da sala</li>`);
+    }
 </script>
