@@ -9,30 +9,24 @@
     */
 
     //ENTRADA
-    const carro = prompt("Informe o carro que deseja remover: (Tiggo, Sportage, Tucson, EcoSport)");
+    const remover = prompt("Informe o carro que deseja remover: (Tiggo, Sportage, Tucson, EcoSport)").toLowerCase().trim();
 
     //PROCESSAMENTO
-    const SUVs = ["Tiggo", "Sportage", "Tucson", "EcoSport"].join(", ");
-    const remover = carro.toLowerCase();
-    switch (remover) {
-        case "tiggo":
-            const SUVsRemovidoTiggo = ["Sportage", "Tucson", "EcoSport"];
-            alert(`Lista antiga: ${SUVs}\n Lista nova: ${SUVsRemovidoTiggo.join(", ")}`);
-            break;
-        case "sportage":
-            const SUVsRemovidoSportage = ["Tiggo", "Tucson", "EcoSport"];
-            alert(`Lista antiga: ${SUVs}\n Lista nova: ${SUVsRemovidoSportage.join(", ")}`);
-            break;
-        case "tucson":
-            const SUVsRemovidoTucson = ["Tiggo", "Sportage", "EcoSport"];
-            alert(`Lista antiga: ${SUVs}\n Lista nova: ${SUVsRemovidoTucson.join(", ")}`);
-            break;
-        case "ecosport":
-            const SUVsRemovidoEcosport = ["Tiggo", "Sportage", "Tucson"];
-            alert(`Lista antiga: ${SUVs}\n Lista nova: ${SUVsRemovidoEcosport.join(", ")}`);
-            break;
-        default:
-            alert("Resposta inválida!");
-            break;
+    const SUVs = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    let removeSUVs = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    if (remover == "tiggo") {
+        removeSUVs.shift();
+        alert(`Lista antiga: ${SUVs.join(", ")}\n Nova lista: ${removeSUVs.join(", ")}`);
+    } else if (remover == "sportage") {
+        removeSUVs.slice(-1, -2);
+        alert(`Lista antiga: ${SUVs.join(", ")}\n Nova lista: ${removeSUVs.join(", ")}`);
+    } else if (remover == "tucson") {
+        removeSUVs.slice(-2, -3);
+        alert(`Lista antiga: ${SUVs.join(", ")}\n Nova lista: ${removeSUVs.join(", ")}`);
+    } else if (remover == "ecosport") {
+        removeSUVs.pop();
+        alert(`Lista antiga: ${SUVs.join(", ")}\n Nova lista: ${removeSUVs.join(", ")}`);
+    } else {
+        alert("Não existe este carro na lista!");
     }
 </script>

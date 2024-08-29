@@ -6,7 +6,7 @@
     */
 
     //ENTRADA
-    const caractere = prompt("Informe apenas um caractere: (Letras minúsculas)");
+    const caractere = prompt("Informe apenas um caractere:").toLowerCase();
     //PROCESSAMENTO
     let mensagemFinal = "";
     (caractere == "a" || caractere == "e" || caractere == "i" || caractere == "o" || caractere == "u") ? mensagemFinal = "Este caractere é uma vogal!" : mensagemFinal = "Este caractere não é uma vogal.";

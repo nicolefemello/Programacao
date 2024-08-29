@@ -18,8 +18,10 @@
     if (num1 > num2) {
         alert(`Antes era: Número 1 = ${inversao}, Número 2 = ${num1}.
         Agora temos: Número 1 = ${num1}, Número 2 = ${inversao}.`);
-    } else {
+    } else if (num2 > num1){
         alert(`Antes era: Número 1 = ${inversao}, Número 2 = ${num1}.
         Agora temos: Número 1 = ${num1}, Número 2 = ${inversao}.`);
+    } else {
+        alert("Não é necessário a troca, pois os números são iguais");
     }
 </script>

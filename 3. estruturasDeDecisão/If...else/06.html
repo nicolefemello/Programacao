@@ -11,25 +11,39 @@
     */
 
     //ENTRADA
-    const num = Number(prompt("Informe um número inteiro menor que 1000:"));
+    const num = parseInt(prompt("Informe um número inteiro menor que 1000:"));
 
     //PROCESSAMENTO
-    const numArredondado = Math.floor(num);
+    const centenas = Math.floor(num / 100);
+    const dezenas = Math.floor((num - (centenas * 100)) / 10);
+    const unidades = Math.floor(num - (centenas * 100) - (dezenas * 10));
+    let termoCentena;
+    let termoDezena;
+    let termoUnidade;
+    if (centenas <= 1) {
+        termoCentena = "centena";
+    } else {
+        termoCentena = "centenas";
+    }
+    if (dezenas <= 1) {
+        termoDezena = "dezena";
+    } else {
+        termoDezena = "dezenas";
+    }
+    if (unidades <= 1) {
+        termoUnidade = "unidade";
+    } else {
+        termoUnidade = "unidades";
+    }
 
     //SAÍDA
-    if (numArredondado < 10) {
-        const unidade = numArredondado / 1;
-        alert(`${numArredondado} = ${unidade} unidade(s).`);
-    } else if (numArredondado < 100) {
-        const dezena = Math.floor(numArredondado / 10);
-        const unidade = Math.floor(numArredondado % 10) ;
-        alert(`${numArredondado} = ${dezena} dezena(s) e ${unidade} unidade(s).`);
-    } else if (numArredondado < 1000) {
-        const centena = Math.floor(numArredondado / 100);
-        const dezena = Math.floor(numArredondado / 10) % 10;
-        const unidade = Math.floor(numArredondado % 10) ;
-        alert(`${numArredondado} = ${centena} centena(s), ${dezena} dezena(s) e ${unidade} unidade(s).`);
+    if (num < 10) {
+        alert(`${num} = ${unidades} ${termoUnidade}`);
+    } else if (num < 100) {
+        alert(`${num} = ${dezenas} ${termoDezena} e ${unidades} ${termoUnidade}`);
+    } else if (num < 1000) {
+        alert(`${num} = ${centenas} ${termoCentena}, ${dezenas} ${termoDezena} e ${unidades} ${termoUnidade}`);
     } else {
-        alert("Valor inválido!");
+        alert("Este número é maior que 1.000!");
     }
 </script>

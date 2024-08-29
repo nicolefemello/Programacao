@@ -15,12 +15,10 @@
 
     //ENTRADA
     const salario = Number(prompt('Informe quanto você ganha por mês:'));
-    const desejaAuxilio = prompt("Você deseja receber auxílio transporte? (S-SIM ou N-NÃO)");
-    const veiculo = prompt("Você utiliza veículo próprio para ir trabalhar? (S-SIM ou N-NÃO)");
+    const auxilio = prompt("Você deseja receber auxílio transporte? (S-SIM ou N-NÃO)").toUpperCase();
+    const veiculoProprio = prompt("Você utiliza veículo próprio para ir trabalhar? (S-SIM ou N-NÃO)").toUpperCase();
 
     //PROCESSAMENTO
-    const auxilio = desejaAuxilio.toUpperCase();
-    const veiculoProprio = veiculo.toUpperCase();
 
     //SAÍDA
     if (auxilio == "S" || veiculoProprio == "S") {

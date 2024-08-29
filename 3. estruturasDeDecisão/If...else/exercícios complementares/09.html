@@ -14,10 +14,10 @@
 
     //ENTRADA
     const valor = Number(prompt("Informe o valor do computador:"));
-    const pagamento = prompt("Informe a forma de pagamento: (B-BOLETO, D-DINHEIRO ou P-PIX)");
+    const formaPagamento = prompt("Informe a forma de pagamento: (B-BOLETO, D-DINHEIRO ou P-PIX)").toUpperCase();
 
     //PROCESSAMENTO
-    const formaPagamento = pagamento.toUpperCase();
+    
     //SAÍDA
     if (formaPagamento == "B") {
         const valorFinal = valor - (valor * 0.03);

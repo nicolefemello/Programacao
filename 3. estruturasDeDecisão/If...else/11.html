@@ -17,10 +17,9 @@
 
     //ENTRADA
     const litros = Number(prompt("Informe quantos litros foram vendidos:"));
-    const combustivel = prompt("Informe o tipo de combustível: A-Álcool ou G-Gasolina");
+    const tipoCombustivel = prompt("Informe o tipo de combustível: A-Álcool ou G-Gasolina").toUpperCase();
 
     //PROCESSAMENTO
-    const tipoCombustivel = combustivel.toUpperCase();
     const valorAlcool = litros * 6.10;
     const valorGasolina = litros * 6.50;
 

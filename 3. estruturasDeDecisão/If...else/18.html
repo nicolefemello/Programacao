@@ -6,12 +6,10 @@
     */
 
     //ENTRADA
-    const localizacao = prompt("Informe em qual hemisfério você se localiza no momento atual: N-norte e S-sul");
-    const periodo = prompt("Informe o mês atual:");
+    const hemisferio= prompt("Informe em qual hemisfério você se localiza no momento atual: N-norte e S-sul").toUpperCase();
+    const mes = prompt("Informe o mês atual:").toLowerCase();
 
     //PROCESSAMENTO
-    const hemisferio = localizacao.toUpperCase();
-    const mes = periodo.toLowerCase();
 
     //SAÍDA
     if (hemisferio == "N" && (mes == "janeiro" || mes == "fevereiro" || mes == "março")) {

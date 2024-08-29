@@ -12,7 +12,7 @@
     */
 
     //ENTRADA
-    const nota = prompt("Informe a nota de 0 a 10:");
+    const nota = Number(prompt("Informe a nota de 0 a 10:"));
     //PROCESSAMENTO
     let mensagemFinal = "";
     (nota <= 10 && nota > 8.9) ? mensagemFinal = "CONCEITO A" : (nota <= 8.9 && nota > 7.9) ? mensagemFinal = "CONCEITO B" : (nota <= 7.9 && nota > 6.9) ? mensagemFinal = "CONCEITO C" : (nota <= 6.9 && nota > 5.9) ? mensagemFinal = "CONCEITO D" : (nota <= 5.9 && nota > 0) ? mensagemFinal = "CONCEITO E" : mensagemFinal = "NOTA INVÁLIDA!";
