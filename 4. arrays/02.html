@@ -7,11 +7,31 @@
     */
 
     //ENTRADA
-    const num1 = Number(prompt("Informe o primeiro número:"));
-    const num2 = Number(prompt("Informe o segundo número:"));
+    let num = [];
+    const num1 = Number(prompt("Informe um número:"));
+    const num2 = Number(prompt("Informe outro número:"));
+    const num3 = Number(prompt("Informe o último número:"));
 
     //PROCESSAMENTO
-    const ordemDecrescente1e2 = [num1, num2];
-    const ordemDecrescente2e1 = [num2, num1];
-    (num1 > num2) ? alert(ordemDecrescente1e2.join(" - ")) : alert(ordemDecrescente2e1.join(" - "));
+
+    //SAÍDA
+    if (num1 >= num2 && num2 >= num3) {
+        num.push(num1, num2, num3);
+        alert(`Ordem decrescente: ${num.join(", ")}`);
+    } else if (num1 >= num3 && num3 >= num2) {
+        num.push(num1, num3, num2);
+        alert(`Ordem decrescente: ${num.join(", ")}`);
+    } else if (num2 >= num1 && num1 >= num3) {
+        num.push(num2, num1, num3);
+        alert(`Ordem decrescente: ${num.join(", ")}`);
+    } else if (num2 >= num3 && num3 >= num1) {
+        num.push(num2, num3, num2);
+        alert(`Ordem decrescente: ${num.join(", ")}`);
+    } else if (num3 >= num1 && num1 >= num2) {
+        num.push(num3, num1, num2);
+        alert(`Ordem decrescente: ${num.join(", ")}`);
+    } else if (num3 >= num2 && num2 >= num1) {
+        num.push(num3, num2, num1);
+        alert(`Ordem decrescente: ${num.join(", ")}`);
+    }
 </script>

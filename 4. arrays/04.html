@@ -13,15 +13,19 @@
 
     //PROCESSAMENTO
     const SUVs = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
-    let removeSUVs = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    let removeSUVs = ["tiggo", "sportage", "tucson", "ecoSport"];
+
+    //SAÍDA
     if (remover == "tiggo") {
         removeSUVs.shift();
         alert(`Lista antiga: ${SUVs.join(", ")}\n Nova lista: ${removeSUVs.join(", ")}`);
     } else if (remover == "sportage") {
-        removeSUVs.slice(-1, -2);
+       const posicao = removeSUVs.indexOf("sportage");
+       removeSUVs.splice(posicao, 1);
         alert(`Lista antiga: ${SUVs.join(", ")}\n Nova lista: ${removeSUVs.join(", ")}`);
     } else if (remover == "tucson") {
-        removeSUVs.slice(-2, -3);
+        const posicao = removeSUVs.indexOf("tucson");
+        removeSUVs.splice(posicao, 1)
         alert(`Lista antiga: ${SUVs.join(", ")}\n Nova lista: ${removeSUVs.join(", ")}`);
     } else if (remover == "ecosport") {
         removeSUVs.pop();
