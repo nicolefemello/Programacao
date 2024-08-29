@@ -11,11 +11,67 @@
     */
 
     //ENTRADA
+    let dados = [
+        { nome: "", idade: 0, salario: 0, sexo: "", estadoCivil: "" }
+    ] //array de objeto com dados do usuário
 
+    let nome = prompt("Informe seu nome:"); //prompt do nome
+    while (/\s/.test(nome) || nome == "" || nome.length < 3 || !isNaN(nome)) { //validação do dado
+        alert("Informe seu nome corretamente!");
+        nome = prompt("Informe seu nome:");
+    }
+    dados[0].nome = nome; //adiconando o dado no objeto
+
+    let idade = Number(prompt("Informe sua idade:")); //prompt da idade
+    while (/\s/.test(idade) || idade == "" || isNaN(idade) || idade < 0 || idade > 150) { //validação do dado
+        alert("Informe sua idade corretamente!");
+        idade = prompt("Informe sua idade:");
+    }
+    dados[0].idade = idade; //adiconando o dado no objeto
+
+    let salario = Number(prompt("Informe seu salário:")); //prompt salario
+    while (/\s/.test(salario) || salario == "" || isNaN(salario) || salario < 0) { //validação do dado
+        alert("Informe seu salário corretamente!");
+        salario = prompt("Informe seu salário:");
+    }
+    dados[0].salario = salario; //adiconando o dado no objeto
+
+    let sexo = prompt("Informe seu sexo:").toLowerCase(); //prompt sexo
+    while (/\s/.test(sexo) || sexo == "" || sexo != ("f" || "m")) { //validação do dado
+        alert("Informe seu sexo corretamente!");
+        sexo = prompt("Informe seu sexo:").toLowerCase();
+    }
+    switch (sexo) {
+        case 'f':
+            dados[0].sexo = "Feminino"; //adiconando o dado no objeto
+            break;
+        case 'm':
+            dados[0].sexo = "Masculino"; //adiconando o dado no objeto
+            break;
+    }
+
+    let estadoCivil = prompt("Informe seu estado civil (S-SOLTEIRO(A), C-CASADO(A), V-VIÚVO(A) ou D-DIVORCIADO(A))").toLowerCase(); //prompt estadoCivil
+    while (/\s/.test(estadoCivil) || estadoCivil == "" || estadoCivil != ("s" || "c" || "v" || "d")) { //validação do dado
+        alert("Informe seu estado civil corretamente!");
+        estadoCivil = prompt("Informe seu estado civil (S-SOLTEIRO(A), C-CASADO(A), V-VIÚVO(A) ou D-DIVORCIADO(A)):").toLowerCase();
+    }
+    switch (estadoCivil) {
+        case "s":
+            dados[0].estadoCivil = "Soletiro(a)"; //adiconando o dado no objeto
+            break;
+        case "c":
+            dados[0].estadoCivil = "Casado(a)"; //adiconando o dado no objeto
+            break;
+        case "v":
+            dados[0].estadoCivil = "Viúvo(a)"; //adiconando o dado no objeto
+            break;
+        case "d":
+            dados[0].estadoCivil = "Divorciado(a)"; //adiconando o dado no objeto
+            break;
+    }
 
     //PROCESSAMENTO
 
-
     //SAÍDA
-
+    document.write(`<strong>Dados do usuário</strong><br>Nome: ${dados[0].nome}<br>Idade: ${dados[0].idade}<br>Salário: R$ ${dados[0].salario.toFixed(2)}<br>Sexo: ${dados[0].sexo}<br>Estado civil: ${dados[0].estadoCivil}`);
 </script>
