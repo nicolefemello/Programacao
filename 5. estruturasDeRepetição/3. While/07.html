@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <script>
-    /*
+    /* terminar!
     PROBLEMA: PESQUISA DE IDADE
     Foi feita uma pesquisa entre os habitantes de uma região. Foram coletados os dados de idade, sexo (M/F) e salário. Faça um programa que calcule 
     e mostre:
@@ -14,15 +14,55 @@
     */
 
     //ENTRADA
-    let idade = [];
-    let sexo = [];
-    let salario = [];
-    while (idade > 0) {
-        
+    let dados = []; //array de dados da pesquisa
+    let pessoas = 0; //contador de pessoas
+    let perguntarIdade = 1;
+
+    while (perguntarIdade > 0) {
+        let objetoDados = { pessoa: pessoas, idade: 0, sexo: "", salario: 0 } //cria um objeto a cada pessoa
+
+        perguntarIdade = Number(prompt(`Informe a idade da pessoa ${pessoas + 1}:`)); //prompt idade
+        if (perguntarIdade <= 0) {
+            break; //quebra o loop
+        }
+        while (isNaN(perguntarIdade) || perguntarIdade == "") { //verifica resposta
+            alert(`Informe a idade da pessoa ${pessoas + 1} corretamente!`); //mensagem de alerta de resposta inválida
+            perguntarIdade = Number(prompt(`Informe a idade da pessoa ${pessoas + 1}:`));
+        }
+
+        objetoDados.idade = perguntarIdade; //adiciona a idade no objeto
+
+        let perguntarSexo = prompt(`Informe o sexo da pessoa ${pessoas + 1} (F-FEMININO ou M-MASCULINO):`).toLowerCase(); //prompt sexo
+        while (!isNaN(perguntarSexo) || !['f', 'm'].includes(perguntarSexo) || perguntarSexo == "" || /\s/.test(perguntarSexo)) { //verifica resposta
+            alert(`Informe o sexo da pessoa ${pessoas + 1} corretamente!`); //mensagem de alerta de resposta inválida
+            perguntarSexo = prompt(`Informe o sexo da pessoa ${pessoas + 1} (F-FEMININO ou M-MASCULINO):`).toLowerCase();
+        }
+        if (perguntarSexo == "f") { //verifica se é mulher
+            objetoDados.sexo = perguntarSexo; //adiciona o sexo no objeto
+        } else { //verifica se é mulher
+            objetoDados.sexo = perguntarSexo; //adiciona o sexo no objeto
+        }
+
+        let perguntarSalario = Number(prompt(`Informe o salário da pessoa ${pessoas + 1}:`)); //prompt salário
+        while (isNaN(perguntarSalario)) { //verifica resposta
+            alert(`Informe o salário da pessoa ${pessoas + 1} corretamente!`); //mensagem de alerta de resposta inválida
+            perguntarIdade = Number(prompt(`Informe o salário da pessoa ${pessoas + 1}:`));
+        }
+        objetoDados.salario = perguntarSalario; //adiciona o salário no objeto
+
+        dados.push(objetoDados); //adiciona o objeto no array
+        pessoas++; //adicona mais uma pessoa no contador
     }
+    console.log(dados);
 
     //PROCESSAMENTO
+    //a) A média dos salários do grupo;
+    
 
+    /*
+    b) A maior e a menor idade do grupo;
+    c) A quantidade de mulheres na região;
+    d) A idade e o sexo da pessoa que possui o menor salário;*/
 
     //SAÍDA
 
