@@ -46,7 +46,7 @@
     for (let i = 0; i < candidatos.length; i++) { //calcula porcentagem de votos de cada candidato
         candidatos[i].porcentagem = (candidatos[i].votos / alunos) * 100;
     }
-    candidatos.sort((a, b) => b.votos - a.votos); //ordena em formas decrescente
+    candidatos.reverse((a, b) => b.votos - a.votos); //ordena em formas decrescente
 
     //SAÍDA
     document.write(`Resultado da votação:<br><strong>1° Lugar: ${candidatos[0].candidato}</strong> com ${candidatos[0].votos} votos! Este candidato obteve ${candidatos[0].porcentagem.toFixed(1)}% dos votos<br><strong>2° Lugar: ${candidatos[1].candidato}</strong> com ${candidatos[1].votos} votos! Este candidato obteve ${candidatos[1].porcentagem.toFixed(1)}% dos votos<br><strong>3° Lugar: ${candidatos[2].candidato}</strong> com ${candidatos[2].votos} votos! Este candidato obteve ${candidatos[2].porcentagem.toFixed(1)}% dos votos`);

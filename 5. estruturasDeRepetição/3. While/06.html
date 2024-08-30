@@ -20,11 +20,39 @@
     */
 
     //ENTRADA
-
+    let candidatos = [
+        { candidato: "Joãozinho", votos: 0 },
+        { candidato: "Mariazinha", votos: 0 },
+    ]; //array de objetos com os candidatos e votos
+    let nulo = 0;
+    let branco = 0;
+    let votos = 0;
+    let perguntarVoto;
+    while (true) { //while para perguntar o voto
+        perguntarVoto = Number(prompt("Informe o seu voto, as opções são: 1. Candidato Joãozinho\n2. Candidato Mariazinha\n3. Nulo\n4. Branco\nEntre com o seu voto:"));
+        while (!([0, 1, 2, 3, 4].includes(perguntarVoto)) || isNaN(perguntarVoto)) { //verificação do voto
+            alert("Vote em um candidato válido!");
+            perguntarVoto = Number(prompt("Informe o seu voto, as opções são: 1. Candidato Joãozinho\n2. Candidato Mariazinha\n3. Nulo\n4. Branco\nEntre com o seu voto:"));
+        }
+        votos++; //adiciona o voto no total de votos
+        if (perguntarVoto == 1) {
+            candidatos[0].votos++; //adiciona o voto
+        } else if (perguntarVoto == 2) {
+            candidatos[1].votos++; //adiciona o voto
+        } else if (perguntarVoto == 3) {
+            nulo++; //adiciona o voto
+        } else if (perguntarVoto == 4){
+            branco++; //adiciona o voto
+        } else if (perguntarVoto == 0){
+            break; //quebra o looping
+        }
+    }
 
     //PROCESSAMENTO
-
+    const porcentagemNulos = Math.ceil((nulo / votos) * 100); //cálculo porcentagem
+    const porcentagemBrancos = Math.ceil((branco / votos) * 100); //cálculo porcentagem
+    candidatos.reverse((a, b) => b.votos - a.votos); //ordena o array em ordem decrescente
 
     //SAÍDA
-
+    document.write(`<strong>Informações da votação</strong><br>1º lugar: ${candidatos[0].candidato}, com ${candidatos[0].votos} votos<br>2º lugar: ${candidatos[1].candidato}, com ${candidatos[1].votos} votos<br>Votos nulos: ${porcentagemNulos.toFixed(2)}<br>Votos brancos: ${porcentagemBrancos.toFixed(2)}`);
 </script>
