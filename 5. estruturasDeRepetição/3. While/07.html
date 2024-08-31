@@ -17,12 +17,13 @@
     let dados = []; //array de dados da pesquisa
     let pessoas = 0; //contador de pessoas
     let perguntarIdade = 1;
+    let contadorMulheres = 0;
 
-    while (perguntarIdade > 0) {
+    while (perguntarIdade >= 0) {
         let objetoDados = { pessoa: pessoas, idade: 0, sexo: "", salario: 0 } //cria um objeto a cada pessoa
 
         perguntarIdade = Number(prompt(`Informe a idade da pessoa ${pessoas + 1}:`)); //prompt idade
-        if (perguntarIdade <= 0) {
+        if (perguntarIdade < 0) {
             break; //quebra o loop
         }
         while (isNaN(perguntarIdade) || perguntarIdade == "") { //verifica resposta
@@ -38,9 +39,10 @@
             perguntarSexo = prompt(`Informe o sexo da pessoa ${pessoas + 1} (F-FEMININO ou M-MASCULINO):`).toLowerCase();
         }
         if (perguntarSexo == "f") { //verifica se é mulher
-            objetoDados.sexo = perguntarSexo; //adiciona o sexo no objeto
+            objetoDados.sexo = "Feminino"; //adiciona o sexo no objeto
+            contadorMulheres++;
         } else { //verifica se é mulher
-            objetoDados.sexo = perguntarSexo; //adiciona o sexo no objeto
+            objetoDados.sexo = "Masculino"; //adiciona o sexo no objeto
         }
 
         let perguntarSalario = Number(prompt(`Informe o salário da pessoa ${pessoas + 1}:`)); //prompt salário
@@ -56,14 +58,23 @@
     console.log(dados);
 
     //PROCESSAMENTO
+    let mediaSalario = 0;
     //a) A média dos salários do grupo;
-    
+    for (let i = 0; i < dados.length; i++) { //for para somar os salários
+        mediaSalario += dados[i].salario;
+    }
+    mediaSalario = mediaSalario / dados.length; //divide a soma de todos os salários pela quantidade de pessoas
 
-    /*
-    b) A maior e a menor idade do grupo;
-    c) A quantidade de mulheres na região;
-    d) A idade e o sexo da pessoa que possui o menor salário;*/
+    //b) A maior e a menor idade do grupo;
+    dados.sort((a, b) => a.idade - b.idade); //ordena o array dos mais novos para os mais velhos
+    const menorIdade = dados[0].idade;
+    const maiorIdade = dados[dados.length - 1].idade;
 
     //SAÍDA
+    document.write(`<strong>DADOS DA PESQUISA</strong><br>A média de salários dos habitantes dessa região é de R$ ${mediaSalario.toFixed(2).replace(".", ",")}<br>A maior idade dentre os entrevistados é: ${maiorIdade} anos e a menor idade é: ${menorIdade} anos<br>Na região possui ${contadorMulheres} mulheres<br>`);
+    
+    //d) A idade e o sexo da pessoa que possui o menor salário;
+    dados.sort((a, b) => a.salario - b.salario); //ordena o array do menor salário para o maior
 
+    document.write(`A pessoa com o menor salário tem ${dados[0].idade} anos e seu sexo é ${dados[0].sexo}`);
 </script>
