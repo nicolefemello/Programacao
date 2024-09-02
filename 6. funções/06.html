@@ -15,7 +15,9 @@
             alert("Informe o raio do círculo corretamente!");
             raio = Number(prompt("Informe o raio do círculo em cm:"));
         }
-        return `A Área do círculo é de ${(Math.PI * Math.pow(raio, 2)).toFixed(2)} cm² e o Perímetro é de ${(2 * Math.PI * raio).toFixed(2)} cm`;
+        const area = Math.PI * Math.pow(raio, 2);
+        const perimetro = 2 * Math.PI * raio;
+        return `A Área do círculo é de ${area.toFixed(2)} cm² e o Perímetro é de ${perimetro.toFixed(2)} cm`;
     }
 
     //PROCESSAMENTO
