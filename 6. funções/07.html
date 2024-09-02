@@ -7,11 +7,26 @@
     */
 
     //ENTRADA
+    function calcularQuantidadeVogais() {
+        let palavra;
+        do {
+            if (palavra != undefined) {
+                alert("Informe uma palavra!");
+            }
+            palavra = prompt("Informe uma palavra:").toLowerCase();
+        } while (!isNaN(palavra) || /\s/.test(palavra) || palavra == "")
 
-
+        const arrayPalavra = Array.from(palavra);
+        let vogais = []
+        for (let letra of arrayPalavra) {
+            if ((["a", "e", "i", "o", "u"]).includes(letra)) {
+                vogais.push(letra);
+            }
+        }
+        return `A palavra ${palavra} possui ${vogais.length} vogais`
+    }
     //PROCESSAMENTO
 
-
     //SAÍDA
-
+    document.write(calcularQuantidadeVogais());
 </script>
