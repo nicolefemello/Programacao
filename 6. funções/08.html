@@ -7,42 +7,39 @@
 
     //ENTRADA
     function calcularIMC() {
-        let peso, altura;
-
-        do {
-            if (peso, altura != undefined) alert("Informe um peso e uma altura válida!");
+        let peso = Number(prompt("Informe seu peso em kg:"));
+        while (isNaN(peso) || peso <= 0) {
+            alert("Informe um peso válido!");
             peso = Number(prompt("Informe seu peso em kg:"));
+        }
+
+        let altura = Number(prompt("Informe sua altura em metros:"));
+        while (isNaN(altura) || altura <= 0) {
+            alert("Informe uma altura válida!");
             altura = Number(prompt("Informe sua altura em metros:"));
-        } while (/\s/.test(peso, altura) || peso, altura == "" || isNaN(peso, altura) || peso, altura < 0);
+        }
 
         const imc = peso / altura ** 2;
 
         const classificacoes = [
-            {imc: 16.9, classifacao: `Você está muito abaixo do peso, seu IMC é de ${imc.toFixed(1)}`},
-            {imc: 18.4, classifacao: `Você está abaixo do peso, seu IMC é de ${imc.toFixed(1)}`},
-            {imc: 24.9, classifacao: `Você está com o peso normal, seu IMC é de ${imc.toFixed(1)}`}
-        ]
-
-        /*if (imc <= 16.9) {
-            return `Você está muito abaixo do peso, seu IMC é de ${imc.toFixed(1)}`;
-        } else if (imc <= 18.4) {
-            return `Você está abaixo do peso, seu IMC é de ${imc.toFixed(1)}`;
-        } */else if (imc <= 24.9) {
-            return `Você está com o peso normal, seu IMC é de ${imc.toFixed(1)}`;
-        } else if (imc <= 29.9) {
-            return `Você está acima do peso, seu IMC é de ${imc.toFixed(1)}`;
-        } else if (imc <= 34.9) {
-            return `Você está com obesidade grau I, seu IMC é de ${imc.toFixed(1)}`;
-        } else if (imc <= 39.9) {
-            return `Você está com obesidade grau II, seu IMC é de ${imc.toFixed(1)}`;
-        } else {
-            return `Você está com obesidade grau III, seu IMC é de ${imc.toFixed(1)}`;
+            { calImc: 16.9, classificacao: `Você está muito abaixo do peso, seu IMC é de ${imc.toFixed(1)}` },
+            { calImc: 18.4, classificacao: `Você está abaixo do peso, seu IMC é de ${imc.toFixed(1)}` },
+            { calImc: 24.9, classificacao: `Você está com o peso normal, seu IMC é de ${imc.toFixed(1)}` },
+            { calImc: 29.9, classificacao: `Você está acima do peso, seu IMC é de ${imc.toFixed(1)}` },
+            { calImc: 34.9, classificacao: `Você está com obesidade grau I, seu IMC é de ${imc.toFixed(1)}` },
+            { calImc: 39.9, classificacao: `Você está com obesidade grau II, seu IMC é de ${imc.toFixed(1)}` },
+            { calImc: 40, classificacao: `Você está com obesidade grau III, seu IMC é de ${imc.toFixed(1)}` }
+        ];
+        
+        for (let i = 0; i < classificacoes.length; i++) {
+            if (imc <= classificacoes[i].calImc) {
+                return classificacoes[i].classificacao;
+            }
         }
     }
 
     //PROCESSAMENTO
 
-
     //SAÍDA
-
+    document.write(calcularIMC());
 </script>
