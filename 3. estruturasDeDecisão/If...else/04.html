@@ -10,11 +10,14 @@
     */
 
     //ENTRADA
-    const notaAntes = prompt("Informe a nota do little brother antes do programa BB:");
-    const notaDepois = prompt("Informe a nota do little brother após o programa BB:");
-    //SAÍDA
+    const notaAntes = Number(prompt("Informe a nota do little brother antes do programa BB:"));
+    const notaDepois = Number(prompt("Informe a nota do little brother após o programa BB:"));
+
+    //PROCESSAMENTO
     if (notaAntes < notaDepois) {
         const diferenca = (notaDepois - notaAntes) / 4;
+    
+    //SAÍDA
         alert(`O big brother recebeu ${diferenca} de acréscimo em sua nota.`);
     } else {
         alert(`Lilttle brother não melhorou suas notas, então não houve acréscimos na nota do big brother.`);

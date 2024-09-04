@@ -14,12 +14,15 @@
         { candidato: "", votos: 0, porcentagem: 0 },
         { candidato: "", votos: 0, porcentagem: 0 }
     ]; //criei um array de objetos para armazenar os dados de cada candidato
+    let gerarPergunta;
     for (let i = 0; i < candidatos.length; i++) {
-        let gerarPergunta = prompt(`Informe o nome do ${i + 1}° candidato a representante da sala:`).toLowerCase().trim(); //aqui criei um for para perguntar o nome de cada candidato
-        while (!isNaN(gerarPergunta) || gerarPergunta == "" || candidatos.some(c => c.candidato === gerarPergunta)) { //aqui verifica se o dado preenchido está da forma desejada
-            alert(`Informe corretamente o nome do candidato ${i}!`);
-            gerarPergunta = prompt(`Informe o nome do ${i + 1}° candidato a representante da sala:`).toLowerCase().trim();
-        }
+        gerarPergunta = undefined;
+        do { //aqui verifica se o dado preenchido está da forma desejada
+            if (gerarPergunta != undefined) {
+                alert(`Informe corretamente o nome do candidato ${i}!`);
+            }
+            gerarPergunta = prompt(`Informe o nome do ${i + 1}° candidato a representante da sala:`).toLowerCase().trim(); //aqui criei um for para perguntar o nome de cada candidato
+        } while (!isNaN(gerarPergunta) || gerarPergunta == "" || candidatos.some(c => c.candidato === gerarPergunta)) 
         candidatos[i].candidato = gerarPergunta; //adicionei o nome ao objeto de seu candidato
     }
     let alunos = Number(prompt("Informe a quantidade de alunos votantes:")); //perguntei a quantidade de alunos votantes
@@ -50,4 +53,4 @@
 
     //SAÍDA
     document.write(`Resultado da votação:<br><strong>1° Lugar: ${candidatos[0].candidato}</strong> com ${candidatos[0].votos} votos! Este candidato obteve ${candidatos[0].porcentagem.toFixed(1)}% dos votos<br><strong>2° Lugar: ${candidatos[1].candidato}</strong> com ${candidatos[1].votos} votos! Este candidato obteve ${candidatos[1].porcentagem.toFixed(1)}% dos votos<br><strong>3° Lugar: ${candidatos[2].candidato}</strong> com ${candidatos[2].votos} votos! Este candidato obteve ${candidatos[2].porcentagem.toFixed(1)}% dos votos`);
-</script>
+    </script>

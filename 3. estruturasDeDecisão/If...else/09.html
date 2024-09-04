@@ -14,102 +14,47 @@
     const operacao = prompt("Informe a operação que deseja fazer: (A-ADIÇÃO, S-SUBTRAÇÃO, M-MULTIPLICAÇÃO ou D-DIVISÃO)").toUpperCase();
 
     //PROCESSAMENTO
-    let resultado = 0;
+    let resultado;
+    let parImpar;
+    let inteiroDecimal;
+    let positivoNegativo;
 
-    //SAÍDA
-    if (operacao == "A") {
-        resultado += num1 + num2;
-        alert(`${resultado}.`);
+    if (operacao == "A") { //adição 
+        resultado = num1 + num2;
 
-        if (resultado % 2 == 0) { //par ou ímpar
-            alert("Par");
-        } else {
-            alert("Ímpar");
-        }
+    } else if (operacao == "S") { //subtração
+        resultado = num1 - num2;
 
-        if (resultado > 0) { //positivo ou negativo
-            alert("Positivo");
-        } else if (resultado < 0) {
-            alert("Negativo");
-        } else {
-            alert("Neutro");
-        }
+    } else if (operacao == "M") { //multiplicação
+        resultado = num1 * num2;
 
-        if (Number.isInteger(resultado)) { //inteiro ou decimal
-            alert("Inteiro");
-        } else {
-            alert("Decimal");
-        }
-    } else if (operacao == "S") {
-        resultado += num1 - num2;
-        alert(`${resultado}.`);
+    } else if (operacao == "D") { //divisão
+        resultado = num1 / num2;
 
-        if (resultado % 2 == 0) { //par ou ímpar
-            alert("Par");
-        } else {
-            alert("Ímpar");
-        }
-
-        if (resultado > 0) { //positivo ou negativo
-            alert("Positivo");
-        } else if (resultado < 0) {
-            alert("Negativo");
-        } else {
-            alert("Neutro");
-        }
-
-        if (Number.isInteger(resultado)) { //inteiro ou decimal
-            alert("Inteiro");
-        } else {
-            alert("Decimal");
-        }
-    } else if (operacao == "M") {
-        resultado += num1 * num2;
-        alert(`${resultado}.`);
-
-        if (resultado % 2 == 0) { //par ou ímpar
-            alert("Par");
-        } else {
-            alert("Ímpar");
-        }
-
-        if (resultado > 0) { //positivo ou negativo
-            alert("Positivo");
-        } else if (resultado < 0) {
-            alert("Negativo");
-        } else {
-            alert("Neutro");
-        }
-
-        if (Number.isInteger(resultado)) { //inteiro ou decimal
-            alert("Inteiro");
-        } else {
-            alert("Decimal");
-        }
-    } else if (operacao == "D") {
-        resultado += num1 / num2;
-        alert(`${resultado}.`);
-
-        if (resultado % 2 == 0) { //par ou ímpar
-            alert("Par");
-        } else {
-            alert("Ímpar");
-        }
-
-        if (resultado > 0) { //positivo ou negativo
-            alert("Positivo");
-        } else if (resultado < 0) {
-            alert("Negativo");
-        } else {
-            alert("Neutro");
-        }
-
-        if (Number.isInteger(resultado)) { //inteiro ou decimal
-            alert("Inteiro");
-        } else {
-            alert("Decimal");
-        }
-    } else {
+    } else { //inválido
         alert("Operação Inválida!");
     }
+
+    if (resultado % 2 == 0) { //par ou ímpar
+        parImpar = "par";
+    } else {
+        parImpar = "ímpar";
+    }
+
+    if (Math.sign(resultado) == 1) { //positivo ou negativo
+        positivoNegativo = "positivo";
+    } else if (resultado < 0) {
+        positivoNegativo = ("negativo");
+    } else {
+        positivoNegativo = ("neutro");
+    }
+
+    if (Number.isInteger(resultado)) { //inteiro ou decimal
+        inteiroDecimal = "inteiro";
+    } else {
+        inteiroDecimal = "decimal";
+    } 
+
+    //SAÍDA
+    alert(`O resultado é: ${resultado}. Ele é ${parImpar}, ${positivoNegativo} e ${inteiroDecimal}`);
 </script>

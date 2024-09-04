@@ -17,9 +17,11 @@
     const centenas = Math.floor(num / 100);
     const dezenas = Math.floor((num - (centenas * 100)) / 10);
     const unidades = Math.floor(num - (centenas * 100) - (dezenas * 10));
+
     let termoCentena;
     let termoDezena;
     let termoUnidade;
+    
     if (centenas <= 1) {
         termoCentena = "centena";
     } else {
