@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: ÁREA DO RETÂNGULO
+    Crie um objeto chamado retangulo com as propriedades base e altura, e crie um método para calcular a área do retângulo.
+    */
+
+    //ENTRADA
+    let base, altura;
+    do {
+        if (base != undefined || altura != undefined) {
+            alert("Preencha os campos corretamente!");
+        }
+        base = Number(prompt("Informe a base do retângulo em cm:"));
+        altura = Number(prompt("Informe a altura do retângulo em cm:"));
+    } while (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0);
+    let retangulo = { base: base, altura: altura, area: 0 };
+
+    //PROCESSAMENTO
+    (function calcularArea() {
+        const area = retangulo.base * retangulo.altura;
+        retangulo.area = area;
+
+        //SAÍDA
+        return document.write(`A área do retângulo é de ${(retangulo.area).toFixed(1)} cm²`);
+    })()
+</script>

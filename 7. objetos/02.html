@@ -1,0 +1,25 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: NOME COMPLETO DA PESSOA
+    Crie um objeto chamado pessoa com as propriedades nome e sobrenome, e crie um método que retorne o nome completo da pessoa.
+    */
+
+    //ENTRADA
+    let pessoa = { nome: "", sobrenome: "" };
+    let nome, sobrenome;
+    do {
+        if (nome != undefined || sobrenome != undefined) {
+            alert("Preencha os campos corretamente!");
+        }
+        nome = prompt("Informe seu nome:").trim();
+        sobrenome = prompt("Informe seu sobrenome:").trim();
+    } while (!isNaN(nome) || !isNaN(sobrenome))
+
+    //PROCESSAMENTO
+    pessoa.nome = nome;
+    pessoa.sobrenome = sobrenome;
+
+    //SAÍDA
+    document.write(`Seu nome completo é: ${pessoa.nome} ${pessoa.sobrenome}`);
+</script>

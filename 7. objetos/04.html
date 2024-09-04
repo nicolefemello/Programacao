@@ -1,0 +1,132 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: LATIDO DO CACHORRO
+    Crie um objeto chamado cachorro com as propriedades nome, raca e cor, e crie um método que retorne o latido do cachorro.
+    */
+
+    //ENTRADA
+    let nome, raca, cor, nacionalidade, humor;
+    do {
+        if (nome != undefined || raca != undefined || cor != undefined || nacionalidade != undefined || humor != undefined) {
+            alert("Preencha os campos corretamente!");
+        }
+        nome = prompt("Informe o nome do cachorro:").trim();
+        raca = prompt("Informe a raça do cachorro:").trim();
+        cor = prompt("Informe a cor do cachorro:").trim();
+        nacionalidade = prompt("Informe a nacionalidade do cachorro (brasileiro, americano, francês, alemão, italiano ou espanhol):").trim().toLowerCase();
+        humor = prompt("Informe o humor do cachorro (alegre, assustado, bravo, pedinte, dengoso):").trim().toLowerCase();
+    } while (!isNaN(nome) || !isNaN(raca) || !isNaN(cor) || !isNaN(nacionalidade) || !isNaN(humor))
+    const cachorro = { nome: nome, raca: raca, cor: cor, nacionalidade: nacionalidade, humor: humor };
+
+    //PROCESSAMENTO
+    let latido;
+    if (nacionalidade == "brasileiro") {
+        switch (humor) {
+            case "alegre":
+                latido = "Au au!";
+                break;
+            case "assustado":
+                latido = "Au!";
+                break;
+            case "bravo":
+                latido = "Arf arf!";
+                break;
+            case "pedinte":
+                latido = "Au au...";
+                break;
+            case "dengoso":
+                latido = "Au aun...";
+                break;
+        }
+
+    } else if (nacionalidade == "americano") {
+        switch (humor) {
+            case "alegre":
+                latido = "Woof woof!";
+                break;
+            case "assustado":
+                latido = "Woof!";
+                break;
+            case "bravo":
+                latido = "Bark bark!";
+                break;
+            case "pedinte":
+                latido = "Woof woof...";
+                break;
+            case "dengoso":
+                latido = "Woof woofn...";
+                break;
+        }
+
+    } else if (nacionalidade == "francês" || nacionalidade == "frances") {
+        switch (humor) {
+            case "alegre":
+            case "bravo":
+                latido = "Ouaf ouaf!";
+                break;
+            case "assustado":
+                latido = "Ouaf!";
+                break;
+            case "pedinte":
+                latido = "Ouaf ouaf...";
+                break;
+            case "dengoso":
+                latido = "Ouaf ouafn...";
+                break;
+        }
+    } else if (nacionalidade == "alemão" || nacionalidade == "alemao") {
+        switch (humor) {
+            case "alegre":
+            case "bravo":
+                latido = "Wau wau!";
+                break;
+            case "assustado":
+                latido = "Wau!";
+                break;
+            case "pedinte":
+                latido = "Wau wau...";
+                break;
+            case "dengoso":
+                latido = "Wau waun...";
+                break;
+        }
+
+    } else if (nacionalidade == "italiano") {
+        switch (humor) {
+            case "alegre":
+            case "bravo":
+                latido = "Bau bau!";
+                break;
+            case "assustado":
+                latido = "Bau!";
+                break;
+            case "pedinte":
+                latido = "Bau bau...";
+                break;
+            case "dengoso":
+                latido = "Bau baun...";
+                break;
+        }
+
+    } else if (nacionalidade == "espanhol") {
+        switch (humor) {
+            case "alegre":
+            case "bravo":
+                latido = "Guau guau!";
+                break;
+            case "assustado":
+                latido = "Guau!";
+                break;
+            case "pedinte":
+                latido = "Guau guau...";
+                break;
+            case "dengoso":
+                latido = "Guau guaun...";
+                break;
+        }
+    }
+
+    //SAÍDA
+    
+</script>

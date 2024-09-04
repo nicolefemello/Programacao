@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: DADOS DO LIVRO
+    Crie um objeto chamado livro com as propriedades titulo, autor e numeroDePaginas, e crie um método que retorne o livro em 
+    formato string.
+    */
+
+    //ENTRADA
+    let livro = { titulo: "", autor: "", numeroDePaginas: 0 };
+    let titulo, autor, numeroDePaginas;
+    do {
+        if (titulo != undefined || autor != undefined || numeroDePaginas != undefined) {
+            alert("Preencha os campos corretamente!");
+        }
+        titulo = prompt("Informe o titulo do livro:").trim();
+        autor = prompt("Informe o autor do livro:").trim();
+        numeroDePaginas = Number(prompt("Informe o número de páginas do livro:"));
+    } while (!isNaN(titulo) || !isNaN(autor) || isNaN(numeroDePaginas) || numeroDePaginas <= 0 || titulo == "" || autor == "");
+
+    //PROCESSAMENTO
+    livro.titulo = titulo;
+    livro.autor = autor;
+    livro.numeroDePaginas = numeroDePaginas;
+
+    //SAÍDA
+    document.write(`O título do livro é: ${livro.titulo}, ele é do/a autor(a) ${livro.autor} e possui ${livro.numeroDePaginas} páginas`);
+</script>
