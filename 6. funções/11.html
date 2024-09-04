@@ -1,15 +1,33 @@
 <script>
     /*
     PROBLEMA: VERIFICAR NÚMERO PRIMO
-    Desenvolva um programa que contenha uma função JavaScript para verificar se o número fornecido pelo usuário é um número primo ou não. Um número primo é aquele que é divisível apenas por 1 e por ele mesmo. Por exemplo, o número 7 é primo, pois só é divisível por 1 e por 7. O número 8 não é primo, pois é divisível por 1, por 2, por 4 e por 8.
+    Desenvolva um programa que contenha uma função JavaScript para verificar se o número fornecido pelo usuário é um número primo ou não. Um número primo é aquele que é 
+    divisível apenas por 1 e por ele mesmo. Por exemplo, o número 7 é primo, pois só é divisível por 1 e por 7. O número 8 não é primo, pois é divisível por 1, por 2, 
+    por 4 e por 8.
     */
 
     //ENTRADA
-
+    let num;
+    do {
+        if (num != undefined) {
+            alert("Informe um número!");
+        }
+        num = Number(prompt("Informe um número:"));
+    } while (isNaN(num) || num <= 0) 
 
     //PROCESSAMENTO
-
-
+    (function verificarNumeroPrimo() {
+        let divisores = [];
+        for (let i = 0; i <= num; i++) {
+            if (num % i == 0) {
+                divisores.push(i);
+            }
+        }
     //SAÍDA
-
+        if (divisores.length > 2) {
+            return document.write(`Este número não é um número primo! Ele é divisor de: ${divisores.join(", ")}`);
+        } else {
+            return document.write(`Este número é um número primo! Ele é divisor de: ${divisores.join(", ")}`);
+        }
+    })()
 </script>

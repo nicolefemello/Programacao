@@ -7,11 +7,27 @@
     */
 
     //ENTRADA
-
+    let frase, letra;
+    do {
+        if (frase != undefined || letra != undefined) alert("Preencha os campos corretamente!");
+        frase = prompt("Informe uma palavra ou frase:").trim().toLowerCase();
+        letra = prompt("Informe uma letra:").trim().toLowerCase();
+    } while (!isNaN(frase) || !isNaN(letra) || frase == "" || letra == "")
 
     //PROCESSAMENTO
-
-
+    (function contarLetra(frase, letra) {
+        const arrayFrase = Array.from(frase);
+        let contador = 0;
+        for (let caractere of arrayFrase) {
+            if (caractere == letra) contador++;
+        }
+        let termo;
+        if (contador <= 1) {
+            termo = "letra";
+        } else {
+            termo = "letras";
+        }
     //SAÍDA
-
+        return document.write(`A palavra ou frase possui ${contador} ${termo} ${letra}`);
+    })()
 </script>

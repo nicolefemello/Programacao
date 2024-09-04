@@ -12,16 +12,13 @@
             number = parseInt(prompt("Informe um número inteiro:"));
         } while (isNaN(number) || isNaN == "")
         let fatorial = 1;
+    //PROCESSAMENTO
         for (let i = 2; i <= number; i++) {
             fatorial *= i;
         }
         return `O fatorial de ${number} é ${fatorial}`;
-        
+
     }
-
-
-    //PROCESSAMENTO
-
 
     //SAÍDA
     document.write(calcularFatorial());
