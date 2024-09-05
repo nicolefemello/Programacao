@@ -16,9 +16,11 @@
     //PROCESSAMENTO
     if (notaAntes < notaDepois) {
         const diferenca = (notaDepois - notaAntes) / 4;
+        let termoDiferença;
+        (diferenca <= 1) ? termoDiferença = "ponto" : termoDiferença = "pontos";
     
     //SAÍDA
-        alert(`O big brother recebeu ${diferenca} de acréscimo em sua nota.`);
+        alert(`O big brother recebeu ${diferenca} ${termoDiferença} de acréscimo em sua nota.`);
     } else {
         alert(`Lilttle brother não melhorou suas notas, então não houve acréscimos na nota do big brother.`);
     }
