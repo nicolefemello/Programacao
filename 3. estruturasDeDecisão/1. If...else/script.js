@@ -1,8 +1,20 @@
-function ordenarDecrescente(texto, ...number) {
-    let numbers = number; //adiciona os números em um array
-    return texto + numbers.reverse((a, b) => { return b - a }).join(" - "); //e retorna em ordem decrescente
+// 02
+function ordenarDecrescente(texto) {
+    let num1;
+    let num2;
+    let num3;
+    do {
+        if ((num1 || num2 || num3) != undefined) return 'Há números iguais! Insira números diferentes!'; //retorna mensagem de erro
+        num1 = Number(prompt("Informe um número:")); //prompt num1
+        num2 = Number(prompt("Informe outro número:")); //prompt num2
+        num3 = Number(prompt("Informe o último número:")); //prompt num3
+    }
+    while (num1 == num2 || num1 == num3 || num2 == num1 || num2 == num3 || num3 == num1 || num3 == num2) //verifica se são números iguais
+    let number = [num1, num2, num3]; //array com valores
+    return texto + number.sort((a, b) => b - a).join(" - "); //retorna em ordem decrescente
 }
 
+// 05
 function verificarParOuImpar(num) {
     if (num % 2 == 0) { //verifica se é par
         return "Par!";
@@ -11,6 +23,7 @@ function verificarParOuImpar(num) {
     }
 }
 
+// 06
 function calcularCentenasDezenasUnidades(num) {
     const centenas = Math.floor(num / 100); //calcula centenas
     const dezenas = Math.floor((num - (centenas * 100)) / 10); //calcula dezenas 
@@ -33,8 +46,9 @@ function calcularCentenasDezenasUnidades(num) {
     } else {
         return "Este número é maior que 1.000! Informe um valor válido";
     }
-}
 
+}
+// 07
 function calcularNotas(saque) {
     while (saque < 10 || saque > 600) { //verifica se o dado recebido é o que se espera
         alert("Informe um saque válido!");
@@ -67,6 +81,7 @@ function calcularNotas(saque) {
     }
 }
 
+// 08
 function testarLadosTriangulos(...lados) {
     let medidas = lados;
 
@@ -82,7 +97,7 @@ function testarLadosTriangulos(...lados) {
         return "Não é possível obter um triângulo com essas medidas!";
     }
 }
-
+// 09
 function calcularOperacao(operacao, ...num) {
     let resultado;
     let parImpar;
@@ -112,7 +127,7 @@ function calcularOperacao(operacao, ...num) {
 
     return `O resultado é: ${resultado}. Ele é ${parImpar}, ${positivoNegativo} e ${inteiroDecimal}`; //retorno
 }
-
+// 10
 function classificarSuspeita(...respostas) {
     const dados = [...respostas];
     let participacao = 0;
@@ -131,11 +146,11 @@ function classificarSuspeita(...respostas) {
         return "Classificação: Assassino";
     }
 }
-
+// 11
 function descontarCombustivel(litros, tipo) {
     let valor;
     let porcentagemPorLitro;
-    
+
     if (tipo == "A" && litros <= 20) {
         valor = (litros * 6.10) - (litros * (6.10 * 0.03));
         porcentagemPorLitro = "e até 20L você recebe 3% de desconto por litro";
@@ -150,6 +165,6 @@ function descontarCombustivel(litros, tipo) {
         porcentagemPorLitro = "e acima de 20L você recebe 6% de desconto por litro";
     }
     (tipo == "A") ? tipo = "álcool" : tipo = "gasolina";
-    
+
     return `O valor a ser pago pelo cliente é de R$ ${valor.toFixed(2)}, pois o combustível é do tipo: ${tipo} ${porcentagemPorLitro}`;
 }

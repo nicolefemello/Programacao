@@ -1,0 +1,33 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: AUMENTO DE PREÇO
+    Recebe o preço do produto e calcula o aumento do preço, baseado no seguinte critério:
+    - até 280(inclusive): aumento de 20 %
+    - até 700(inclusive): aumento de 15 %
+    - até 1500(inclusive): aumento de 10 %
+    - acima de 1500: aumento de 5 %
+    */
+
+    //ENTRADA
+    const preco = Number(prompt("Informe o preço do produto:"));
+
+    //PROCESSAMENTO
+
+
+    //SAÍDA
+    if (preco <= 280) {
+        const aumento = preco + (preco * 0.20);
+        alert(`O preço do produto era ${preco} reais. Com 20% de aumento, o valor subiu para ${aumento} reais.`);
+    } else if (preco <= 700) {
+        const aumento = preco + (preco * 0.15);
+        alert(`O preço do produto era ${preco} reais. Com 15% de aumento, o valor subiu para ${aumento} reais.`);
+    } else if (preco <= 1500) {
+        const aumento = preco + (preco * 0.10);
+        alert(`O preço do produto era ${preco} reais. Com 10% de aumento, o valor subiu para ${aumento} reais.`);
+    } else {
+        const aumento = preco + (preco * 0.05);
+        alert(`O preço do produto era ${preco} reais. Com 5% de aumento, o valor subiu para ${aumento} reais.`);
+    }
+
+</script>

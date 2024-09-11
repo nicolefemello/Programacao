@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+<script src="script.js"></script>
+<script>
+    /*
+    PROBLEMA: OPERAÇÃO MATEMÁTICA
+    Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação 
+    deve ser acompanhado de uma frase que diga se o número é:
+    - par ou ímpar;
+    - positivo ou negativo;
+    - inteiro ou decimal.
+    */
+
+    //ENTRADA
+    const num1 = Number(prompt("Informe um número:"));
+    const num2 = Number(prompt("Informe outro número:"));
+    const operacao = prompt("Informe a operação que deseja fazer: (A-ADIÇÃO, S-SUBTRAÇÃO, M-MULTIPLICAÇÃO ou D-DIVISÃO)").toUpperCase();
+
+    //PROCESSAMENTO
+
+    //SAÍDA
+    alert(calcularOperacao(operacao, num1, num2));
+</script>

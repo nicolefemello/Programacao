@@ -1,5 +1,4 @@
 <meta charset="UTF-8">
-<script src="script.js"></script>
 <script>
     /*
     //PROBLEMA: TROCAR VARIÁVEIS
@@ -8,8 +7,13 @@
     */
 
     //ENTRADA
-    let num1 = parseInt(prompt("Informe um número inteiro:"));
-    const num2 = parseInt(prompt("Informe outro número inteiro:"));
+    let num1;
+    let num2;
+    do {
+        if ((num1 || num2) != undefined) alert("Informe números inteiros!");
+        num1 = parseInt(prompt("Informe um número inteiro:"));
+        num2 = parseInt(prompt("Informe outro número inteiro:"));
+    } while (isNaN(num1) || isNaN(num2))
     
     //PROCESSAMENTO
     let inversao = num1;
