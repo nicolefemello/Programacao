@@ -2,15 +2,45 @@
 <script>
     /*
     PROBLEMA: COR DA CASA
-    Crie um objeto chamado casa com as propriedades cor, numeroDePortas e numeroDeJanelas, e crie um método que retorne a cor da casa.
+    Crie um objeto chamado casa com as propriedades cor, numeroDePortas e numeroDeJanelas, e crie um método que retorne a cor da 
+    casa.
     */
     
     //ENTRADA
+    const questions = ["Qual a cor da casa?", "Qual o número de portas?", "Qual o número de janelas?"]; //array com as perguntas
 
+    const dadosCasa = { cor: "", nºPortas: "", nºJanelas: "" }; //array com as respostas
+
+    for (let i = 0; i < questions.length; i++) { //dá um prompt nas perguntas
+        let response; //armazena a resposta 
+
+        if (i == 0) { //conefere se é a primeira pergunta
+            do {
+                (response != undefined) ? alert("Responda a pergunta corretamente!") : console.log("Resposta enviada!"); //verifica se a pergunta já foi respondida alguma vez
+                response = prompt(questions[i]).trim(); //faz a pergunta
+            } while (!isNaN(response) || response == ""); //se não se encaixar nos padrões da resposta, mandará uma mensagem de erro
+
+        } else {
+            do {
+                (response != undefined) ? alert("Responda a pergunta corretamente!") : console.log("Resposta enviada!");
+                response = prompt(questions[i]);
+            } while (isNaN(response) || response == "");
+        }
+
+        switch (i) { //armazena a resposta no objeto
+            case 0:
+                dadosCasa.cor = response;
+                break;
+            case 1:
+                dadosCasa.nºPortas = response;
+                break;
+            case 2:
+                dadosCasa.nºJanelas = response;
+        }
+    }
 
     //PROCESSAMENTO
 
-
     //SAÍDA
-    
+    document.write(`A cor da casa é: ${dadosCasa.cor}`);
 </script>
