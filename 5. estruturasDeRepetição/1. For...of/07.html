@@ -7,17 +7,15 @@
     números foram localizados.*/
 
     //ENTRADA
-    let listaDeNumeros = [1, 2.5, -3, 4, 8.9, 4.789, -25.6, 42];
-    let numPositivosEInteiros = [];
+    let numbers = [1, 2.5, -3, 4, 8.9, 4.789, -25.6, 42];
+    const integersPositives = [];
 
     //PROCESSAMENTO
-    for (let num of listaDeNumeros) {
-        if (num > 0 && Number.isInteger(num)) {
-            numPositivosEInteiros.push(num);
+    for (number of numbers) {
+        if (Number.isInteger(number) && number > 0) {
+            integersPositives.push(number);
         }
     }
-
     //SAÍDA
-    document.write(`<li><strong>Lista de números</strong> possui ${listaDeNumeros.length} elementos, são eles: ${listaDeNumeros.join(", ")}</li>
-    <li><strong>Lista de números inteiros e positivos</strong> possui ${numPositivosEInteiros.length} elementos, são eles: ${numPositivosEInteiros.join(", ")}</li>`);
+    document.write(`Números inteiros e positivos: ${integersPositives.join(" - ")}<br>Foram encontrados ${integersPositives.length} números.`);
 </script>

@@ -7,22 +7,20 @@
     adicione na lista correspondente. Apresente as duas listas de nomes ao final do programa.*/
 
     //ENTRADA
-    let listaDeNomes = ["João", "Maria", "José", "Amanda", "Beatriz", "Júlio", "Olívia"];
+    let names = ["João", "Maria", "José", "Amanda", "Beatriz", "Júlio", "Olívia"];
+    let female = [];
+    let male = [];
 
     //PROCESSAMENTO
-    let feminino = [];
-    let masculino = [];
-    for (let nome of listaDeNomes) {
-        let genero = prompt(`O ${nome} é masculino (M) ou feminino (F)?`).toUpperCase();
-        if (genero == "F") {
-            feminino.push(nome);
-        } else if (genero == "M") {
-            masculino.push(nome);
-        } else {
-            alert("Gênero inválido!")
-        }
+    for (name of names) {
+        let response;
+        do {
+            if (response != undefined) alert("Responda corretamente!");
+            response = prompt(name + " é um nome masculino ou feminino? Responda com M-masculino ou F-feminino").trim().toUpperCase();
+        } while (response == "" || !isNaN(response) || (response != "M" && response != 'F'));
+        (response == "M") ? male.push(name) : female.push(name);
     }
 
     //SAÍDA
-    alert(`Lista completa: ${listaDeNomes.join(", ")}\n Lista de nomes femininos: ${feminino.join(", ")}\n Lista de nomes masculinos: ${masculino.join(", ")}`);
+    document.write(`Nomes femininos: ${female.join(", ")}<br>Nomes masculinos: ${male.join(", ")}`);
 </script>

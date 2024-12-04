@@ -6,22 +6,15 @@
     //Faça um programa que identifique os números pares e apresente-os ao fim do programa, ordenados de forma crescente.
 
     //ENTRADA
-
+    let numbers = [1, 4, 6, 8, 898, 7, 43, 2980, 3500, 10];
 
     //PROCESSAMENTO
-    let listaDeNumeros = [1, 4, 6, 8, 898, 7, 43, 2980, 3500, 10].sort((a, b) => {return a - b});
     let pares = [];
-    let impares = [];
+
+    for (number of numbers) {
+        (number % 2 == 0) ?  pares.push(number) : console.log(`${number} é ímpar!`);
+    }
 
     //SAÍDA
-    for (let num of listaDeNumeros) {
-        if (num % 2 == 0) {
-            pares.push(num);
-        } else {
-            impares.push(num)
-        }
-    }
-    document.write(`<li> Lista original: ${listaDeNumeros.join(", ")} </li> 
-    <li> Lista pares: ${pares.join(", ")} </li> 
-    <li> Lista impares: ${impares.join(", ")}</li>`);
+    document.write(`${pares.sort((a, b) => a - b).join(" - ")}`)
 </script>

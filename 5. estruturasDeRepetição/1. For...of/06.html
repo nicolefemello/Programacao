@@ -7,16 +7,16 @@
     Considere que poderão haver "Joãos" sem ~ (til).*/
 
     //ENTRADA
-    let listaDeNomes = ["João Pedro", "Gabriel José", "Ulisses Joao", "Pedro Henrique", "João da Silva", "João Henrique", "Alisson João"];
-    let listaJoao = [];
+    let names = ["João Pedro", "Gabriel José", "Ulisses Joao", "Pedro Henrique", "João da Silva", "João Henrique", "Alisson João"];
+    let contentJoao = [];
 
     //PROCESSAMENTO
-    for (let nome of listaDeNomes) {
-        if (nome.substr(0, 4) == "João" || nome.substr(8, 11) == "João" || nome.substr(8, 11) == "Joao") {
-            listaJoao.push(nome)
+    for (name of names) {
+        if (name.indexOf('João') >= 0 || name.indexOf('Joao') >= 0) {
+            contentJoao.push(name);
         }
     }
+
     //SAÍDA
-    document.write(`<li><strong>Lista de nomes:</strong> ${listaDeNomes.join(", ")}</li>
-    <li><strong>Lista de nomes com João:</strong> ${listaJoao.join(", ")}</li>`);
+    document.write(`Nomes que possuem João: ${contentJoao.join(", ")}`);
 </script>
