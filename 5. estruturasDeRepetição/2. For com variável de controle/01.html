@@ -11,23 +11,18 @@
     */
 
     //ENTRADA
-    let listaDeLetras = ["a", "b", "d", "e", "E", "F", "C", "U", "u", "e", "W", "D"];
-    let letras = [];
-    let contador = [];
-
+    let letters = ["a", "b", "d", "e", "E", "F", "C", "U", "u", "e", "W", "D"];
+    const lettersNoRepeat = [];
 
     //PROCESSAMENTO
-    for (let i = 0; i < listaDeLetras.length; i++) {
-        let letra = listaDeLetras[i].toLowerCase();
+    for (let i = 0; i <= letters.length-1; i++) {
+        let letra = letters[i].toLowerCase();
 
-        if (contador.indexOf(letra) == -1) {
-            contador.push(letra);
-            letras.push(letra);
+        if (lettersNoRepeat.indexOf(letra) == -1) {
+            lettersNoRepeat.push(letra);
         }
     }
-    letras.sort();
 
     //SAÍDA
-    document.write(`<li><strong>Lista de letras:</strong> ${listaDeLetras.join(", ")}</li>
-    <li><strong>Lista de letras minúsculas em ordem alfabétca:</strong> ${letras.join(", ")}</li>`);
+    document.write(`${lettersNoRepeat.sort().join(" - ")}`);
 </script>

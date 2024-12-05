@@ -7,34 +7,31 @@
     */
 
     //ENTRADA
-    let perguntar = ["Qual quantidade de notas que o aluno obteve?"];
-    let notas = [];
     let quantidadeNotas;
+    do {
+        if (quantidadeNotas != undefined) alert("Responda corretamente!");
+        quantidadeNotas = prompt("Qual quantidade de notas que o aluno obteve?");
+    } while (quantidadeNotas == "" || isNaN(quantidadeNotas))
 
-    for (let pergunta1 of perguntar) {
-        quantidadeNotas = Number(prompt(pergunta1));
-        while (isNaN(quantidadeNotas) || /\s/.test(quantidadeNotas) || quantidadeNotas == "" || quantidadeNotas <= 0) {
-            alert("Preencha corretamente a quantidade de notas obtidas pelo aluno!");
-            quantidadeNotas = Number(prompt(pergunta1));
-        }
-        for (let i = 0; i < quantidadeNotas; i++) {
-            let pergunta = Number(prompt(`Informe a nota ${i + 1} de seu aluno:`));
-            while (isNaN(pergunta) || /\s/.test(pergunta) || pergunta == "" || pergunta < 0 || pergunta > 10) {
-                alert("Preencha corretamente a nota de seu aluno!");
-                pergunta = Number(prompt(`Informe a nota ${i + 1} de seu aluno:`));
-            }
-            //PROCESSAMENTO
-            if (Number(pergunta)) {
-                notas.push(pergunta);
-            }
-        }
+    let notas = [];
+    for (let i = 1; i <= quantidadeNotas; i++) {
+        let nota;
+        do {
+            if (nota != undefined) alert("Responda corretamente!");
+            nota = Number(prompt(`Informe a nota ${i} de seu aluno:`));
+        } while (isNaN(nota) || nota == "")
+        notas.push(nota);
     }
+    
+    //PROCESSAMENTO
     let somaNotas = 0;
-    for (let i = 0; i < notas.length; i++) {
+    for (let i = 0; i <= quantidadeNotas-1; i++) {
         somaNotas += notas[i];
     }
-    console.log(somaNotas);
+
+    console.log(somaNotas)
     const media = somaNotas / quantidadeNotas;
+
     //SAÍDA
     document.write(`A média do aluno é: ${media.toFixed(1)}`);
 </script>

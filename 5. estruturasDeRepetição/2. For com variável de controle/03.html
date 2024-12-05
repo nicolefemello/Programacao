@@ -7,19 +7,18 @@
     */
 
     //ENTRADA
-    let numeros = [];
-    for (let i = 0; i < 5; i++) {
-        let num = Number(prompt("Informe um número:"));
-        while (isNaN(num) || /\s/.test(num) || num == "") {
-            alert("Por favor, informe um número!");
-            num = Number(prompt("Informe um número:"));
-        }
-        numeros.push(num);
+    let numbers = [];
+    for (i = 1; i <= 5; i++) {
+        let num;
+        do {
+            num = Number(prompt(`Informe o número ${i}:`));
+        } while (num == "" || isNaN(num))
+        numbers.push(num);
     }
 
     //PROCESSAMENTO
-
+    numbers.sort((a, b) => a - b);
+    
     //SAÍDA
-    document.write(`<li><strong>Lista de números:</strong> ${numeros.join(", ")}</li>`);
-    document.write(`<li><strong>O maior número da lista é:</strong> ${numeros.sort()[4]}</li>`);
+    document.write(`O maior número digitado foi: ${numbers[4]}`);
 </script>
