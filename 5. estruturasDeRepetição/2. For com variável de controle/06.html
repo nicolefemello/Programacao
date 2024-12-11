@@ -1,61 +1,31 @@
 <meta charset="UTF-8">
 <script>
-    /* !refazer
+    /*
     PROBLEMA: IMPRIMIR NÚMEROS
-    Faça um programa que pergunte ao usuário um número inicial e um número final. Verifique se o número inicial é menor 
+    Faça um programa que pergunte ao usuário um número inicial e um número final. Verifique se o número inicial é menor
     que o número final e apresente na tela os números ímpares e os números pares que estão entre os dois números. Se o 
     número inicial for maior ou igual ao número final, apresente mensagem de erro para o usuário, informando a regra para 
     o número inicial e número final.
     */
 
     //ENTRADA
-    let numInicial = Number(prompt("Informe um número inicial (menor):"));
-    while (isNaN(numInicial) || /\s/.test(numInicial) || numInicial == "") {
-        alert(`Informe corretamente o número inicial!`);
-        numInicial = Number(prompt("Informe um número inicial (menor):"));
-    }
+    let number1, number2;
 
-    let numFinal = Number(prompt("Informe um número final (maior):"));
-    while (isNaN(numFinal) || /\s/.test(numFinal) || numFinal == "") {
-        alert(`Informe corretamente o número final!`);
-        numFinal = Number(prompt("Informe um número final (maior):"));
-    }
-
-    let numeros = [];
+    do {
+        if (number1 != undefined) alert("Informe um número menor e depois um maior!"); //if number1 != undefined, number2 também será
+        number1 = Number(prompt("Informe um número:"));
+        number2 = Number(prompt("Informe um número maior que o outro:"));
+        console.log(number1, number2)
+    } while (number2 < number1 || number1 == "" || number2 == '' || isNaN(number1) || isNaN(number2))
 
     //PROCESSAMENTO 
-    while (numFinal <= numInicial) {
-        alert("ERRO!\n O número inicial tem que ser menor que o número final!");
-        numInicial = Number(prompt("Informe um número inicial (menor):"));
-        numFinal = Number(prompt("Informe um número final (maior):"));
-    }
-    if (!isNaN(numInicial) && !isNaN(numFinal)) {
-        numeros.push(numInicial, numFinal);
-    }
-    console.log(numeros);
-    let pares = [];
-    let impares = [];
-    if (numeros[0] % 2 == 0) {
-        for (let i = numeros[0]; i <= numeros[1]; i += 2) {
-            pares.push(i);
-        }
-        for (let i = numeros[0] + 1; i <= numeros[1]; i += 2) {
-            impares.push(i);
-        }
-    } else {
-        for (let i = numeros[0]; i <= numeros[1]; i += 2) {
-            impares.push(i);
-        }
-        for (let i = numeros[0] + 1; i <= numeros[1]; i += 2) {
-            pares.push(i);
-        }
+    const pares = [];
+    const impares = [];
+
+    for (let i = number1; i <= number2; i++) {
+        (i % 2 == 0) ? pares.push(i) : impares.push(i);
     }
 
-    console.log(pares);
-    console.log(impares);
     //SAÍDA
-    document.write(`<li><strong>Número Inicial: ${numeros[0]}</strong></li>
-    <li><strong>Número Final: ${numeros[1]}</strong></li>
-    <li><strong>Números pares entre eles:</strong> ${pares.join(", ")}</li>
-    <li><strong>Números ímpares entre eles:</strong> ${impares.join(", ")}</li>`);
+    document.write(`Os números escolhidos foram: ${number1} - ${number2}<br>Pares: ${pares.join(" - ")}<br>Ímpares: ${impares.join(" - ")}`);
 </script>

@@ -10,8 +10,8 @@
     let somaMultiplos = 0;
 
     //PROCESSAMENTO
-    for (let i = 3; i <= 100; i += 3) {
-        multiplos.push(i);
+    for (let i = 1; i <= 100; i++) {
+        if (i % 3 == 0) multiplos.push(i);
     }
     for (let i = 0; i < multiplos.length; i++) {
         somaMultiplos += multiplos[i];

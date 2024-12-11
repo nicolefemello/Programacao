@@ -9,48 +9,45 @@
     */
 
     //ENTRADA
-    let candidatos = [
-        { candidato: "", votos: 0, porcentagem: 0 },
-        { candidato: "", votos: 0, porcentagem: 0 },
-        { candidato: "", votos: 0, porcentagem: 0 }
-    ]; //criei um array de objetos para armazenar os dados de cada candidato
-    let gerarPergunta;
-    for (let i = 0; i < candidatos.length; i++) {
-        gerarPergunta = undefined;
-        do { //aqui verifica se o dado preenchido está da forma desejada
-            if (gerarPergunta != undefined) {
-                alert(`Informe corretamente o nome do candidato ${i}!`);
-            }
-            gerarPergunta = prompt(`Informe o nome do ${i + 1}° candidato a representante da sala:`).toLowerCase().trim(); //aqui criei um for para perguntar o nome de cada candidato
-        } while (!isNaN(gerarPergunta) || gerarPergunta == "" || candidatos.some(c => c.candidato === gerarPergunta)) 
-        candidatos[i].candidato = gerarPergunta; //adicionei o nome ao objeto de seu candidato
+    let eleicao = [];
+
+    for (i = 1; i <= 3; i++) {
+        let candidato = { nome: '', votos: 0, porcentagem: 0 };
+
+        do {
+            if (candidato.nome != '') alert("Informe o nome do candiato!");
+            candidato.nome = prompt("Informe o nome do candidato:").trim().toLowerCase();
+        } while (!isNaN(candidato.nome) || candidato.nome == "");
+        eleicao.push(candidato);
     }
-    let alunos = Number(prompt("Informe a quantidade de alunos votantes:")); //perguntei a quantidade de alunos votantes
-    while (isNaN(alunos) || alunos == "" || alunos < 1) { //verifiquei se o dado foi preenchido corretamente
-        alert("Informe corretamente a quantidade de alunos votantes!");
-        alunos = Number(prompt("Informe a quantidade de alunos votantes:"));
-    }
-    for (let i = 0; i < alunos; i++) { //for para obter os votos dos alunos
-        let perguntarVoto = prompt(`Candidato 1: ${candidatos[0].candidato}\nCandidato 2: ${candidatos[1].candidato}\nCandidato 3: ${candidatos[2].candidato}\nInforme o voto do aluno ${i + 1}:`).toLowerCase().trim();
-        while (!isNaN(perguntarVoto) || perguntarVoto == "" || !candidatos.some(c => c.candidato === perguntarVoto)) { //verifica os votos
-            alert(`Informe seu voto num candidato válido!`);
-            perguntarVoto = prompt(`Candidato 1: ${candidatos[0].candidato}\nCandidato 2: ${candidatos[1].candidato}\nCandidato 3: ${candidatos[2].candidato}\nInforme o voto do aluno ${i + 1}:`).toLowerCase().trim();
-        }
-        if (perguntarVoto == candidatos[0].candidato) { //contador de votos
-            candidatos[0].votos++;
-        } else if (perguntarVoto == candidatos[1].candidato) {
-            candidatos[1].votos++;
-        } else {
-            candidatos[2].votos++;
-        }
-    }
+
+    let alunos;
+    do {
+        if (alunos != undefined) alert("Informe o número de alunos votantes!");
+        alunos = Number(prompt("Informe o número de alunos votantes da sala:"));
+    } while (isNaN(alunos) || alunos == "" || alunos <= 0);
 
     //PROCESSAMENTO
-    for (let i = 0; i < candidatos.length; i++) { //calcula porcentagem de votos de cada candidato
-        candidatos[i].porcentagem = (candidatos[i].votos / alunos) * 100;
+    for (i = 1; i <= alunos; i++) {
+        let voto;
+
+        do {
+            if (voto != undefined) alert("Informe um voto válido!");
+            voto = prompt(`Informe seu voto: ${eleicao[0].nome}, ${eleicao[1].nome} ou ${eleicao[2].nome}`).trim().toLowerCase();
+        } while (!isNaN(voto) || voto == '' || (voto != eleicao[0].nome && voto != eleicao[1].nome && voto != eleicao[2].nome))
+
+        (voto == eleicao[0].nome) ? eleicao[0].votos += 1 : (voto == eleicao[1].nome) ? eleicao[1].votos += 1 : eleicao[2].votos += 1;
     }
-    candidatos.reverse((a, b) => b.votos - a.votos); //ordena em formas decrescente
+
+    eleicao.sort((a, b) => b.votos - a.votos);
+
+    for (i = 0; i < eleicao.length; i++) {
+        eleicao[i].porcentagem += (eleicao[i].votos / alunos) * 100;
+    }
 
     //SAÍDA
-    document.write(`Resultado da votação:<br><strong>1° Lugar: ${candidatos[0].candidato}</strong> com ${candidatos[0].votos} votos! Este candidato obteve ${candidatos[0].porcentagem.toFixed(1)}% dos votos<br><strong>2° Lugar: ${candidatos[1].candidato}</strong> com ${candidatos[1].votos} votos! Este candidato obteve ${candidatos[1].porcentagem.toFixed(1)}% dos votos<br><strong>3° Lugar: ${candidatos[2].candidato}</strong> com ${candidatos[2].votos} votos! Este candidato obteve ${candidatos[2].porcentagem.toFixed(1)}% dos votos`);
-    </script>
+    document.write(`Na sala houve três candidatos a representante, entre eles: ${eleicao[0].nome}, ${eleicao[1].nome} e ${eleicao[2].nome}<br>
+    <br>Em 1º lugar, ${eleicao[0].nome} com: ${eleicao[0].votos} votos, cerca de ${eleicao[0].porcentagem.toFixed(2)}% dos votos
+    <br>Em 2º lugar, ${eleicao[1].nome} com: ${eleicao[1].votos} votos, cerca de ${eleicao[1].porcentagem.toFixed(2)}% dos votos
+    <br>E em 3º lugar, ${eleicao[2].nome} com: ${eleicao[2].votos} votos, cerca de ${eleicao[2].porcentagem.toFixed(2)}% dos votos`);
+</script>

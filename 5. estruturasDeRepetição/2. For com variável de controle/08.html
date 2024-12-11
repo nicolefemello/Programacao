@@ -6,32 +6,26 @@
     */
 
     //ENTRADA
-    let perguntas = [
-        "Informe o número 1:",
-        "Informe o número 2:",
-        "Informe o número 3:",
-        "Informe o número 4:",
-        "Informe o número 5:"
-    ];
-    let numeros = [];
-    for (let i = 0; i < perguntas.length; i++) {
-        let gerarPergunta = Number(prompt(perguntas[i]));
-        while (isNaN(gerarPergunta) || /\s/.test(gerarPergunta) || gerarPergunta == "") {
-            alert(`Informe o número ${i + 1} corretamente!`);
-            gerarPergunta = Number(prompt(perguntas[i]));
-        }
-        if (!isNaN(gerarPergunta)) {
-            numeros.push(gerarPergunta);
-        }
+    let numbers = []
+
+    for (i = 1; i <= 5; i++) {
+        let num;
+
+        do {
+            if (num != undefined) alert("Informe um número!");
+            num = Number(prompt("Informe um número:"));
+        } while (num == "" || isNaN(num))
+
+        numbers.push(num);
     }
 
     //PROCESSAMENTO
     let soma = 0;
-    for (let i = 0; i < numeros.length; i++) {
-        soma += numeros[i];
+    for (number of numbers) {
+        soma += number;
     }
 
+    const media = soma / numbers.length;
     //SAÍDA
-    document.write(`<li><strong>Números informados:</strong> ${numeros.join(", ")}</li>
-    <li><strong>A soma destes números é:</strong> ${soma}</li>`);
+    document.write(`A soma dos números resulta em: ${soma}<br>A média dos números é: ${media.toFixed(1)}`);
 </script>
